@@ -6,6 +6,8 @@ public class SolitaireMain {
 	    frame.setSize(1200,600);
 	    frame.setVisible( true );
 	    frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+	    frame.setBackground(Color. GREEN);
+	    frame.getContentPane().setBackground(Color.GREEN);
 	}
 
 }
