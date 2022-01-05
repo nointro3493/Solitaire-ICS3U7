@@ -8,6 +8,11 @@ public class SolitaireMain {
 	    frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 	    frame.setBackground(Color. GREEN);
 	    frame.getContentPane().setBackground(Color.GREEN);
+	    
+	   CardObject card1 = new CardObject( "g", "Spades");
+	   System.out.println(card1);
+	   
+	   System.out.println(card1.getCardFace());
 	}
 
 }
