@@ -14,8 +14,6 @@ public class StartMenu extends JFrame implements ActionListener{
 	    frame.setSize(1200,600);
 	    frame.setVisible( true );
 	    frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-	    frame.setBackground(Color. GREEN);
-	    frame.getContentPane().setBackground(Color.GREEN);
 	    j1 = new JLabel();
 	    
 	    
@@ -46,7 +44,7 @@ public class StartMenu extends JFrame implements ActionListener{
 		exitbutton.setBorderPainted(false);
 		exitbutton.setOpaque(true);
 		exitbutton.setBackground(Color.RED);
-		exitbutton.addActionListener(this);
+		//exitbutton.addActionListener(this);
 		frame.add(exitbutton);
 		
 		helpbutton = new JButton("HELP");
@@ -55,7 +53,7 @@ public class StartMenu extends JFrame implements ActionListener{
 		helpbutton.setBorderPainted(false);
 		helpbutton.setOpaque(true);
 		helpbutton.setBackground(Color.YELLOW);
-		helpbutton.addActionListener(this);
+		//helpbutton.addActionListener(this);
 		frame.add(helpbutton);
 		
 		
@@ -64,18 +62,16 @@ public class StartMenu extends JFrame implements ActionListener{
 	    j1.setBounds(1200, 600, 0,0);
 	    frame.add(j1);
 	    frame.validate();
-	   
-	    
-	   
-	    	
 	    
 	   
 	}
 	 public static void main(String[] args) {
 	    	new StartMenu();
 	    }
+	 
 	 public void actionPerformed(ActionEvent e) {
-		 System.out.println("InputDetected");
+		 SolitaireMain main = new SolitaireMain();
+
 		 
 	 }
 	
