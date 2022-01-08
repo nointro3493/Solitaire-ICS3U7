@@ -57,9 +57,9 @@ public class StartMenu extends JFrame implements ActionListener{
 		frame.add(helpbutton);
 		
 		
-
-	    j1.setIcon(new ImageIcon("/Users/KabirJain/Downloads/Msft_Nostalgia_Solitaire.jpg"));
-	    j1.setBounds(1200, 600, 0,0);
+	
+	    j1.setIcon(new ImageIcon("images/StartPage.jpeg"));
+	    j1.setBounds(1200, 600, 0, 0);
 	    frame.add(j1);
 	    frame.validate();
 	    
