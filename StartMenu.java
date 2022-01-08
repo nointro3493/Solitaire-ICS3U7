@@ -24,6 +24,7 @@ public class StartMenu extends JFrame implements ActionListener{
 	    t1.setFont(new Font("Comic Sans MS", Font.BOLD, 40));
 	    t1.setForeground(Color.WHITE);
 	    frame.add(t1);
+	    
 	    okbutton = new JButton("Start");
 		okbutton.setBounds(450, 300, 211, 50);
 		okbutton.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
@@ -44,6 +45,7 @@ public class StartMenu extends JFrame implements ActionListener{
 		exitbutton.setBorderPainted(false);
 		exitbutton.setOpaque(true);
 		exitbutton.setBackground(Color.RED);
+		exitbutton.addActionListener(this);
 		//exitbutton.addActionListener(this);
 		frame.add(exitbutton);
 		
@@ -53,6 +55,7 @@ public class StartMenu extends JFrame implements ActionListener{
 		helpbutton.setBorderPainted(false);
 		helpbutton.setOpaque(true);
 		helpbutton.setBackground(Color.YELLOW);
+		helpbutton.addActionListener(this);
 		//helpbutton.addActionListener(this);
 		frame.add(helpbutton);
 		
@@ -60,17 +63,32 @@ public class StartMenu extends JFrame implements ActionListener{
 	
 	    j1.setIcon(new ImageIcon("images/StartPage.jpeg"));
 	    j1.setBounds(1200, 600, 0, 0);
-	    frame.add(j1);
+	    frame.add(j1);	
 	    frame.validate();
 	    
 	   
 	}
-	 public static void main(String[] args) {
-	    	new StartMenu();
-	    }
+	public static void main(String[] args) {
+		new StartMenu();
+	}
+
 	 
 	 public void actionPerformed(ActionEvent e) {
-		 SolitaireMain main = new SolitaireMain();
+		 if(e.getSource()== okbutton) {
+			SolitaireMain main = new SolitaireMain();
+		 	frame.setVisible(false);
+		 }
+		 
+		 
+		 if(e.getSource() == exitbutton) {
+			frame.setVisible(false);
+		 }
+		 
+		 if(e.getSource() == helpbutton) {
+			 tutorialClass tut = new tutorialClass();
+			 
+		 }
+		 
 
 		 
 	 }
