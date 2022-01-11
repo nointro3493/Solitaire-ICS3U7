@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class StartMenu extends JFrame implements ActionListener{
 	private JFrame frame;
-	private JLabel t1;
+	private JLabel titleText;
 	private JLabel j1;
 	private JButton okbutton;
 	private JButton exitbutton;
@@ -19,11 +19,11 @@ public class StartMenu extends JFrame implements ActionListener{
 	    
 	    
 	    
-	    t1=new JLabel("Welcome to SpadeAce; The Best Solitaire In Its Class!");  
-	    t1.setBounds(50,50, 1500,49);  
-	    t1.setFont(new Font("Comic Sans MS", Font.BOLD, 40));
-	    t1.setForeground(Color.WHITE);
-	    frame.add(t1);
+	    titleText=new JLabel("Welcome to SpadeAce; The Best Solitaire In Its Class!");  
+	    titleText.setBounds(50,50, 1500,49);  
+	    titleText.setFont(new Font("Comic Sans MS", Font.BOLD, 40));
+	    titleText.setForeground(Color.WHITE);
+	    frame.add(titleText);
 	    
 	    okbutton = new JButton("Start");
 		okbutton.setBounds(450, 300, 211, 50);

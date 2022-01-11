@@ -10,6 +10,8 @@ public class SolitaireMain {
 	    frame1.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 	    frame1.setBackground(Color. GREEN);
 	    frame1.getContentPane().setBackground(Color.GREEN);
+	    
+	    
 	  
 	}
 

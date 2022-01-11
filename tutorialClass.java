@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-public class tutorialClass extends JFrame implements ActionListener{
+public class tutorialClass extends JFrame{
 	JFrame tutorialFrame;
 	JLabel bgPicture;
 	JLabel stepOne;
@@ -18,12 +18,6 @@ public class tutorialClass extends JFrame implements ActionListener{
 		tutorialFrame.setVisible( true );
 		
 		bgPicture = new JLabel();
-		stepOne = new JLabel();
-
-		stepOne.setIcon(new ImageIcon("images/Step1.jpeg"));
-		stepOne.setBounds(200,400, 0, 0);
-		tutorialFrame.add(stepOne);	
-		tutorialFrame.validate();
 
 		bgPicture.setIcon(new ImageIcon("images/StartPage.jpeg"));
 		bgPicture.setBounds(1200, 600, 0, 0);
@@ -35,10 +29,6 @@ public class tutorialClass extends JFrame implements ActionListener{
 	}
 	public static void main(String[] args) {
 		new tutorialClass();
-	}
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 
 	}
 
