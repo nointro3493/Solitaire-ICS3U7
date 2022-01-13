@@ -3,18 +3,18 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class StartMenu extends JFrame implements ActionListener{
-	private JFrame frame;
-	private JLabel titleText;
-	private JLabel j1;
-	private JButton okbutton;
-	private JButton exitbutton;
-	private JButton helpbutton;
+		private JFrame frame;
+		private JLabel titleText;
+		private JLabel bgPic;
+		private JButton okbutton;
+		private JButton exitbutton;
+		private JButton helpbutton;
 	StartMenu(){
 		frame = new JFrame("Solitaire");
 	    frame.setSize(1200,600);
 	    frame.setVisible( true );
 	    frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-	    j1 = new JLabel();
+	    bgPic = new JLabel();
 	    
 	    
 	    
@@ -61,9 +61,9 @@ public class StartMenu extends JFrame implements ActionListener{
 		
 		
 	
-	    j1.setIcon(new ImageIcon("images/StartPage.jpeg"));
-	    j1.setBounds(1200, 600, 0, 0);
-	    frame.add(j1);	
+	    bgPic.setIcon(new ImageIcon("images/StartPage.jpeg"));
+	    bgPic.setBounds(1200, 600, 0, 0);
+	    frame.add(bgPic);	
 	    frame.validate();
 	    
 	   
