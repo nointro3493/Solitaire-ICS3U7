@@ -11,10 +11,12 @@ public class SolitaireMain {
 	    frame1.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 
         Deck deck = new Deck();
+        HalfDeck halfDeck = new HalfDeck();
 	    frame1.getContentPane().setBackground(Color.GREEN);
 	    
 	    deck.shuffle();
 	    deck.deal();
+	    halfDeck.deal();
 	   
 	    
 	  
