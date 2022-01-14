@@ -14,7 +14,7 @@ public class Card {
     private int suit;
     private int value;
     
-    private String[] ranks = {"A", "X", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "X"};
+    private String[] ranks = {"X", "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
     
     private String[] suits = {"H", "D", "S", "C"};
     
