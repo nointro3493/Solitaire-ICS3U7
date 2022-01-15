@@ -14,8 +14,8 @@ public class tutorialClass extends JFrame{
 	tutorialClass(){
 		tutorialFrame = new JFrame("tutorial");
 		tutorialFrame.setSize(1200,600);
-		tutorialFrame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-		tutorialFrame.setVisible( true );
+		tutorialFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		tutorialFrame.setVisible(true);
 		
 		bgPicture = new JLabel();
 
@@ -27,10 +27,10 @@ public class tutorialClass extends JFrame{
 
 
 	}
-	public static void main(String[] args) {
-		new tutorialClass();
-
-	}
+//	public static void main(String[] args) {
+//		new tutorialClass();
+//
+//	}
 
 
 }
