@@ -1,4 +1,5 @@
-
+import javax.swing.*;
+import java.awt.*;
 public class Card {
 	private static final int HEARTS = 0;
 	private static final int DIAMONDS = 1;
@@ -13,15 +14,17 @@ public class Card {
     private int rank;
     private int suit;
     private int value;
+    private JLabel image;
     
     private String[] ranks = {"X", "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
     
     private String[] suits = {"H", "D", "S", "C"};
     
-    public Card(int r, int s)
+    public Card(int r, int s, JLabel image)
     {
         rank = r;
         suit = s;
+        this.image = image;
     }
     
     public int getRank()
@@ -50,6 +53,11 @@ public class Card {
         return value;
     }
     
+    public JLabel getImage() 
+    {
+    	return image;
+    }
+    
     public String rankToString(int r)
     {
         return ranks[r];
@@ -71,13 +79,10 @@ public class Card {
     }
     public String toString()
     {
-        // Get a string for rank
         String rankString = ranks[rank];
         
-        // Get a string for the suit
         String suitString = suits[suit];
         
-        // combine those
         return rankString + suitString;
     }
 	

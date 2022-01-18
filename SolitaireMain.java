@@ -46,7 +46,10 @@ public class SolitaireMain extends JFrame implements ActionListener{
 	    
 	    deck.shuffle();
 	    deck.deal();
+	    halfDeck.shuffle();
 		halfDeck.deal();
+		
+		
 		
 	}
 	public static void main(String[] args) {
