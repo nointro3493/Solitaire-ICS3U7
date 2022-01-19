@@ -68,9 +68,9 @@ public class StartMenu extends JFrame implements ActionListener{
 	    
 	   
 	}
-//	public static void main(String[] args) {
-//		new StartMenu();
-//	}
+	public static void main(String[] args) {
+		new StartMenu();
+	}
 
 	 
 	 public void actionPerformed(ActionEvent e) {

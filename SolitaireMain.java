@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import javax.swing.*;
-public class SolitaireMain extends JFrame implements ActionListener{
+public class SolitaireMain extends Deck implements ActionListener{
 	private JFrame frame1;
 	private JButton backButton;
 	private Icon backImage;
@@ -34,10 +34,7 @@ public class SolitaireMain extends JFrame implements ActionListener{
 		backButton.addActionListener(this);
 //		backButton = new JButton(backImage);
 //		backButton.addActionListener(this);		
-		
-
-		frame1.add(backButton);
-		
+	
 		bug = new JLabel();
 		frame1.add(bug);
 		
@@ -45,9 +42,9 @@ public class SolitaireMain extends JFrame implements ActionListener{
 	    
 	    
 	    deck.shuffle();
-	    deck.deal();
+	    deck.deal(frame1);
 	    halfDeck.shuffle();
-		halfDeck.deal();
+		halfDeck.deal(frame1);
 		
 		
 		
