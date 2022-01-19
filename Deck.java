@@ -330,7 +330,7 @@ public class Deck
 		for(int piles = 1; piles < 8; piles++) {
 
 			for(int cards = 1; cards <= piles; cards++) {
-				jframe.add(jframe)
+			
 				
 			}	
 			cardCnt++;
