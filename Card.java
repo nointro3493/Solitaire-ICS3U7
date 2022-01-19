@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 public class Card {
-	private static final int HEARTS = 0;
+	 static final int HEARTS = 0;
 	private static final int DIAMONDS = 1;
 	private static final int SPADES = 2;
 	private static final int CLUBS = 3;
@@ -14,7 +14,7 @@ public class Card {
     private int rank;
     private int suit;
     private int value;
-    private JLabel image;
+    public JLabel image;
     
     private String[] ranks = {"X", "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
     

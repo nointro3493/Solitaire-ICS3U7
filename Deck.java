@@ -14,8 +14,8 @@ public class Deck
 	public static final int QUEEN = 12;
 	public static final int KING = 13;
 	public static final int ACE = 1;
-	int x;
-	int y;
+	int xAxis;
+	int yAxis;
 
 	public static JLabel aH;
 	public static JLabel twoH;
@@ -76,6 +76,8 @@ public class Deck
 	public Deck()
 	
 	{   
+
+		 
 		ArrayList<JLabel> cardImages = new ArrayList<JLabel>();
 
 		aH = new JLabel();
@@ -322,16 +324,20 @@ public class Deck
 
 	public void deal( JFrame jframe) 
 	{
-		kC.setBounds(10,10,10,10);
-		jframe.add(kC);
+		
 		int cardCnt = 0;
-		x = 20;
-		y = 20;
+		xAxis = 600;
+		yAxis = 410;
+		jframe.add(deck.get(0).getImage());
+		
+	    jframe.validate();
+		
+		
 		for(int piles = 1; piles < 8; piles++) {
-
 			for(int cards = 1; cards <= piles; cards++) {
-			
 				
+				
+
 			}	
 			cardCnt++;
 		}

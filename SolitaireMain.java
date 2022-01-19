@@ -32,11 +32,10 @@ public class SolitaireMain extends Deck implements ActionListener{
 		backButton.setOpaque(true);
 		backButton.setBackground(Color.GRAY);
 		backButton.addActionListener(this);
-//		backButton = new JButton(backImage);
-//		backButton.addActionListener(this);		
+		frame1.add(backButton);
+		
 	
-		bug = new JLabel();
-		frame1.add(bug);
+		
 		
 		
 	    
@@ -45,7 +44,6 @@ public class SolitaireMain extends Deck implements ActionListener{
 	    deck.deal(frame1);
 	    halfDeck.shuffle();
 		halfDeck.deal(frame1);
-		
 		
 		
 	}
