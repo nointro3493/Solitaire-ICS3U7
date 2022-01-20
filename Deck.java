@@ -326,20 +326,26 @@ public class Deck
 	{
 		
 		int cardCnt = 0;
-		xAxis = 600;
-		yAxis = 410;
-		jframe.add(deck.get(0).getImage());
+		xAxis = 50;
+		yAxis = 300;
 		
-	    jframe.validate();
+		
+		
+
 		
 		
 		for(int piles = 1; piles < 8; piles++) {
 			for(int cards = 1; cards <= piles; cards++) {
-				
-				
-
-			}	
-			cardCnt++;
+				deck.get(cardCnt).getImage().setBounds(xAxis, yAxis, 100, 147);
+				jframe.add(deck.get(cardCnt).getImage());
+				jframe.validate();
+				yAxis = yAxis -40;
+				cardCnt++;
+			}
+			yAxis = 300;
+			
+			xAxis+= 150;
+			
 		}
 		System.out.println();
 	}

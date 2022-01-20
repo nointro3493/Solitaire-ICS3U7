@@ -19,6 +19,7 @@ public class SolitaireMain extends Deck implements ActionListener{
 		frame1 = new JFrame("Solitaire");
 	    frame1.setSize(1200, 600);
 	    frame1.setVisible(true);
+	    frame1.setLayout(null);
 	    frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame1.getContentPane().setBackground(Color.GREEN);
 
@@ -26,7 +27,7 @@ public class SolitaireMain extends Deck implements ActionListener{
         HalfDeck halfDeck = new HalfDeck();
         backButton = new JButton("Back");
         backButton.setPreferredSize(new Dimension(40, 40));
-        backButton.setBounds(450, 375, 211, 50);
+        backButton.setBounds(0, 0, 211, 50);
 		backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
 		backButton.setBorderPainted(false);
 		backButton.setOpaque(true);
