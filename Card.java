@@ -17,6 +17,8 @@ public class Card {
     private int x;
     private int y;
     public JLabel image;
+    private int pileNumber;
+    private int index;
     
     private String[] ranks = {"X", "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
     
@@ -29,6 +31,8 @@ public class Card {
         this.x= x;
         this.y = y;
         this.image = image;
+        pileNumber = 0;
+        index = 0;
     }
     
     public int getRank()
@@ -81,28 +85,49 @@ public class Card {
     {
         return rankToString(rank);
     }
-    public String getName() {
-    	 String rankString = ranks[rank];
-         
-         String suitString = suits[suit];
-    	return rankString + suitString;
-    }
-    public void setX(int newX) {
+    
+    public void setX(int newX) 
+    {
     	x = newX;
   
     }
-    public void setY(int newY) {
+    public void setY(int newY) 
+    {
     	y = newY;
   
     }
     
-    public int getX() {
+    public int getX() 
+    {
     	
     	return x;
     }
- public int getY() {
-    	
+    
+    public int getY() 
+    { 	
     	return y;
+    }
+    
+    public int getPileNum() 
+    {
+    	return pileNumber;
+    }
+    
+    public int setPileNum(int pileNumber) 
+    {
+    	this.pileNumber = pileNumber;
+    	return pileNumber;
+    }
+    
+    public int getIndex() 
+    {
+    	return index;
+    }
+    
+    public int setIndex(int index)
+    {
+    	this.index = index;
+    	return index;
     }
     
     public String toString()
