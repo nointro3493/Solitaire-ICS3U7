@@ -14,16 +14,20 @@ public class Card {
     private int rank;
     private int suit;
     private int value;
+    private int x;
+    private int y;
     public JLabel image;
     
     private String[] ranks = {"X", "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
     
     private String[] suits = {"H", "D", "S", "C"};
     
-    public Card(int r, int s, JLabel image)
+    public Card(int r, int s, JLabel image, int x, int y)
     {
         rank = r;
         suit = s;
+        this.x= x;
+        this.y = y;
         this.image = image;
     }
     
@@ -77,6 +81,30 @@ public class Card {
     {
         return rankToString(rank);
     }
+    public String getName() {
+    	 String rankString = ranks[rank];
+         
+         String suitString = suits[suit];
+    	return rankString + suitString;
+    }
+    public void setX(int newX) {
+    	x = newX;
+  
+    }
+    public void setY(int newY) {
+    	y = newY;
+  
+    }
+    
+    public int getX() {
+    	
+    	return x;
+    }
+ public int getY() {
+    	
+    	return y;
+    }
+    
     public String toString()
     {
         String rankString = ranks[rank];

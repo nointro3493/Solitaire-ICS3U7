@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -16,6 +18,8 @@ public class Deck
 	public static final int ACE = 1;
 	int xAxis;
 	int yAxis;
+	int prevX;
+	int prevY;
 
 	public static JLabel aH;
 	public static JLabel twoH;
@@ -69,16 +73,27 @@ public class Deck
 	public static JLabel jC;
 	public static JLabel qC;
 	public static JLabel kC;
+	public static int cardNum;
+	public static String cardCom;
+	public static ArrayList<Card> pile1 = new ArrayList<Card>();
+	public static ArrayList<Card> pile2 = new ArrayList<Card>();
+	public static ArrayList<Card> pile3 = new ArrayList<Card>();
+	public static ArrayList<Card> pile4 = new ArrayList<Card>();
+	public static ArrayList<Card> pile5 = new ArrayList<Card>();
+	public static ArrayList<Card> pile6 = new ArrayList<Card>();
+	public static ArrayList<Card> pile7 = new ArrayList<Card>();
+	public static ArrayList<String> totalCards = new ArrayList<String>();
+	public static ArrayList<JLabel> cardImages = new ArrayList<JLabel>();
+
 
 
 	public ArrayList<Card> deck;
 
 	public Deck()
-	
+
 	{   
 
-		 
-		ArrayList<JLabel> cardImages = new ArrayList<JLabel>();
+
 
 		aH = new JLabel();
 		aH.setIcon(new ImageIcon("images/AH.png"));
@@ -287,11 +302,11 @@ public class Deck
 		kC = new JLabel();
 		kC.setIcon(new ImageIcon("images/KC.png"));
 		cardImages.add(kC);
-		
-		
 
-		
-		
+
+
+
+
 		int imageNum = 0;
 		deck = new ArrayList<Card>();
 
@@ -299,8 +314,9 @@ public class Deck
 		{
 			for(int suit = HEARTS; suit <= CLUBS; suit++)
 			{
-				Card card = new Card(rank, suit, cardImages.get(imageNum));
+				Card card = new Card(rank, suit, cardImages.get(imageNum), 0, 0);
 				deck.add(card);
+				totalCards.add(rank+""+suit);
 				imageNum++;
 			}
 		}
@@ -322,32 +338,139 @@ public class Deck
 		}
 	}
 
-	public void deal( JFrame jframe) 
+	public void deal(JFrame jframe) 
 	{
-		
+
 		int cardCnt = 0;
+		int pileNum = 0;
 		xAxis = 50;
 		yAxis = 300;
-		
-		
-		
 
-		
-		
 		for(int piles = 1; piles < 8; piles++) {
 			for(int cards = 1; cards <= piles; cards++) {
+
 				deck.get(cardCnt).getImage().setBounds(xAxis, yAxis, 100, 147);
+				deck.get(cardCnt).setX(xAxis);
+				deck.get(cardCnt).setY(yAxis);
 				jframe.add(deck.get(cardCnt).getImage());
 				jframe.validate();
 				yAxis = yAxis -40;
+
+
+				if(pileNum == 0) {
+					pile1.add(deck.get(cardCnt));
+
+
+				}
+				else if(pileNum == 1) {
+					pile2.add(deck.get(cardCnt));
+
+				}
+				else if(pileNum == 2) {
+					pile3.add(deck.get(cardCnt));
+
+				}
+				else if(pileNum == 3) {
+					pile4.add(deck.get(cardCnt));
+
+				}
+				else if(pileNum == 4) {
+					pile5.add(deck.get(cardCnt));
+
+				}
+				else if(pileNum == 5) {
+					pile6.add(deck.get(cardCnt));
+
+				}
+				else {
+					pile7.add(deck.get(cardCnt));
+
+				}
 				cardCnt++;
 			}
+
+			pileNum++;
 			yAxis = 300;
-			
+
 			xAxis+= 150;
-			
+
+
+
+		}
+		for(int i = 0; i < pile1.size(); i++) {
+			System.out.println(i+1 +". " + pile1.get(i));
 		}
 		System.out.println();
+
+		for(int i = 0; i < pile2.size(); i++) {
+			System.out.println(i+1 +". " + pile2.get(i));
+		}
+
+	}
+
+
+	public void moveCard(String cardType,int pileNum,JFrame jframe) {
+		for(int i =0; i < deck.size(); i++) {
+			cardCom = deck.get(i).getName();
+			if(cardCom.equals(cardType)) {
+				if(pileNum == 1) {
+					
+
+					prevX = pile1.get(pile1.size()-1).getX();
+
+					prevY = pile1.get(pile1.size()-1).getY();
+
+					deck.get(i).getImage().setBounds(prevX,prevY+20,100,147);
+					deck.get(i).setX(prevX);
+					deck.get(i).setY(prevY);
+
+					jframe.add(deck.get(i).getImage());
+					pile1.add(deck.get(i));
+
+				}
+				
+				if(pileNum == 2) {
+
+					prevX = pile2.get(pile2.size()-1).getX();
+
+					prevY = pile2.get(pile2.size()-1).getY()+25;
+
+					deck.get(i).getImage().setBounds(prevX,prevY+20,100,147);
+					deck.get(i).setX(prevX);
+					deck.get(i).setY(prevY);
+
+					jframe.add(deck.get(i).getImage());
+					pile2.add(deck.get(i));
+
+				}
+				
+
+				if(pileNum == 3) {
+
+					prevX = pile3.get(pile3.size()-1).getX();
+
+					prevY = pile3.get(pile3.size()-1).getY()+25;
+
+					deck.get(i).getImage().setBounds(prevX,prevY+20,100,147);
+					deck.get(i).setX(prevX);
+					deck.get(i).setY(prevY);
+
+					jframe.add(deck.get(i).getImage());
+					pile3.add(deck.get(i));
+
+				}
+
+
+
+			}
+		}
+		for(int i = 0; i < pile1.size(); i++) {
+			System.out.println(i+1 +". " + pile1.get(i));
+		}
+
+
+
 	}
 
 }
+
