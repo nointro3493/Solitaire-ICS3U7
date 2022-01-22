@@ -20,6 +20,7 @@ public class Deck
 	int yAxis;
 	int prevX;
 	int prevY;
+	int prevPile;
 
 	public static JLabel aH;
 	public static JLabel twoH;
@@ -446,6 +447,7 @@ public class Deck
 				
 
 				if(pileNum == 3) {
+				
 
 					prevX = pile3.get(pile3.size()-1).getX();
 
