@@ -78,8 +78,7 @@ public class SolitaireMain extends Deck implements ActionListener{
 	  
 	    deck.shuffle();
 	    deck.deal(frame1);
-	    halfDeck.shuffle();
-		halfDeck.deal(frame1);
+	    
 		
 		
 	}

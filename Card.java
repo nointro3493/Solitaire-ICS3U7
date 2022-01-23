@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 public class Card {
-	 static final int HEARTS = 0;
+	private static final int HEARTS = 0;
 	private static final int DIAMONDS = 1;
 	private static final int SPADES = 2;
 	private static final int CLUBS = 3;
@@ -16,6 +16,8 @@ public class Card {
     private int value;
     private int x;
     private int y;
+    private int color;
+
     public JLabel image;
     private int pileNum;
     private int index;
@@ -25,7 +27,7 @@ public class Card {
     
     private String[] suits = {"H", "D", "S", "C"};
     
-    public Card(int r, int s, JLabel image, int x, int y, int pileNum, int index)
+    public Card(int r, int s, JLabel image, int x, int y, int pileNum, int index, int color)
     {
         rank = r;
         suit = s;
@@ -34,8 +36,19 @@ public class Card {
         this.image = image;
         this.pileNum = pileNum;
         this.setIndex(index);
+        this.color = color;
+
         
     }
+    
+    public int getColor() {
+    	return color;
+    }
+    
+    public void setColor(int newColor){
+    	color = newColor;
+    }
+
     
     public int getRank()
     {
