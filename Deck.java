@@ -513,35 +513,35 @@ public class Deck
 
 
 	public void moveCard(String cardType,int pileNum,JFrame jframe) {
+		
 		for(int i =0; i < deck.size(); i++) {
 			cardCom = deck.get(i).getName();
 			if(cardCom.equals(cardType)) {
-				if(deck.get(i).getPileNum() == 1) {
-					System.out.println("TestINg dkklndsnlkad");
-                    pile1.remove(deck.get(i));
+				if(pile1.contains(deck.get(i))) {
+					pile1.remove(deck.get(i));
                 }
 
-                else if(deck.get(i).getPileNum() == 2) {
+                else if(pile2.contains(deck.get(i))) {
                     pile2.remove(deck.get(i));
                 }
 
-                else if(deck.get(i).getPileNum() == 3) {
+                else if(pile3.contains(deck.get(i))) {
                     pile3.remove(deck.get(i));
                 }
 
-                else if(deck.get(i).getPileNum() == 4) {
+                else if(pile4.contains(deck.get(i))) {
                     pile4.remove(deck.get(i));
                 }
 
-                else if(deck.get(i).getPileNum() == 5) {
+                else if(pile5.contains(deck.get(i))) {
                     pile5.remove(deck.get(i));
                 }
 
-                else if(deck.get(i).getPileNum() == 6) {
+                else if(pile6.contains(deck.get(i))) {
                     pile6.remove(deck.get(i));
                 }
 
-                else {
+                else if (pile7.contains(deck.get(i))){
                     pile7.remove(deck.get(i));
                 }
 
@@ -598,8 +598,11 @@ public class Deck
 
 			}
 		}
+		for(int i = 0;i < pile1.size(); i++) {
+			System.out.println(pile1.get(i));
+		}
 		
-	}
+	} 
 
 }
 
