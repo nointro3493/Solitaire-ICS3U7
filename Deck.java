@@ -404,7 +404,113 @@ public class Deck
 		sevenH.setIcon(new ImageIcon("images/7H.png"));
 		cardImages.add(sevenH);
 
+		sevenD = new JLabel();
+		sevenD.setIcon(new ImageIcon("images/7D.png"));
+		cardImages.add(sevenD);
 
+		sevenS = new JLabel();
+		sevenS.setIcon(new ImageIcon("images/7S.png"));
+		cardImages.add(sevenS);
+
+		sevenC = new JLabel();
+		sevenC.setIcon(new ImageIcon("images/7C.png"));
+		cardImages.add(sevenC);
+
+		eightH = new JLabel();
+		eightH.setIcon(new ImageIcon("images/8H.png"));
+		cardImages.add(eightH);
+
+		eightD = new JLabel();
+		eightD.setIcon(new ImageIcon("images/8D.png"));
+		cardImages.add(eightD);
+
+		eightS = new JLabel();
+		eightS.setIcon(new ImageIcon("images/8S.png"));
+		cardImages.add(eightS);
+
+		eightC = new JLabel();
+		eightC.setIcon(new ImageIcon("images/8C.png"));
+		cardImages.add(eightC);
+
+		nineH = new JLabel();
+		nineH.setIcon(new ImageIcon("images/9H.png"));
+		cardImages.add(nineH);
+
+		nineD = new JLabel();
+		nineD.setIcon(new ImageIcon("images/9D.png"));
+		cardImages.add(nineD);
+
+		nineS = new JLabel();
+		nineS.setIcon(new ImageIcon("images/9S.png"));
+		cardImages.add(nineS);
+
+		nineC = new JLabel();
+		nineC.setIcon(new ImageIcon("images/9C.png"));
+		cardImages.add(nineC);
+
+		tenH = new JLabel();
+		tenH.setIcon(new ImageIcon("images/10H.png"));
+		cardImages.add(tenH);
+
+		tenD = new JLabel();
+		tenD.setIcon(new ImageIcon("images/10D.png"));
+		cardImages.add(tenD);
+
+		tenS = new JLabel();
+		tenS.setIcon(new ImageIcon("images/10S.png"));
+		cardImages.add(tenS);
+
+		tenC = new JLabel();
+		tenC.setIcon(new ImageIcon("images/10C.png"));
+		cardImages.add(tenC);
+
+		jH = new JLabel();
+		jH.setIcon(new ImageIcon("images/JH.png"));
+		cardImages.add(jH);
+
+		jD = new JLabel();
+		jD.setIcon(new ImageIcon("images/JD.png"));
+		cardImages.add(jD);
+
+		jS = new JLabel();
+		jS.setIcon(new ImageIcon("images/JS.png"));
+		cardImages.add(jS);
+
+		jC = new JLabel();
+		jC.setIcon(new ImageIcon("images/JC.png"));
+		cardImages.add(jC);
+
+		qH = new JLabel();
+		qH.setIcon(new ImageIcon("images/QH.png"));
+		cardImages.add(qH);
+
+		qD = new JLabel();
+		qD.setIcon(new ImageIcon("images/QD.png"));
+		cardImages.add(qD);
+
+		qS = new JLabel();
+		qS.setIcon(new ImageIcon("images/QS.png"));
+		cardImages.add(qS);
+
+		qC = new JLabel();
+		qC.setIcon(new ImageIcon("images/QC.png"));
+		cardImages.add(qC);
+
+		kH = new JLabel();
+		kH.setIcon(new ImageIcon("images/KH.png"));
+		cardImages.add(kH);
+
+		kD = new JLabel();
+		kD.setIcon(new ImageIcon("images/KD.png"));
+		cardImages.add(kD);
+
+		kS = new JLabel();
+		kS.setIcon(new ImageIcon("images/KS.png"));
+		cardImages.add(kS);
+
+		kC = new JLabel();
+		kC.setIcon(new ImageIcon("images/KC.png"));
+		cardImages.add(kC);
 
 
 
@@ -489,9 +595,10 @@ public class Deck
 					pile7.add(deck.get(cardCnt));
 
 				}
+				System.out.print(deck.get(cardCnt) + " ");
 				cardCnt++;
 			}
-
+			System.out.println();
 			pileNum++;
 			yAxis = 300;
 
@@ -605,4 +712,3 @@ public class Deck
 	} 
 
 }
-
