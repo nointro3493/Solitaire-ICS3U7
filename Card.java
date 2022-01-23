@@ -17,22 +17,24 @@ public class Card {
     private int x;
     private int y;
     public JLabel image;
-    private int pileNumber;
+    private int pileNum;
     private int index;
+    
     
     private String[] ranks = {"X", "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
     
     private String[] suits = {"H", "D", "S", "C"};
     
-    public Card(int r, int s, JLabel image, int x, int y)
+    public Card(int r, int s, JLabel image, int x, int y, int pileNum, int index)
     {
         rank = r;
         suit = s;
         this.x= x;
         this.y = y;
         this.image = image;
-        pileNumber = 0;
-        index = 0;
+        this.pileNum = pileNum;
+        this.setIndex(index);
+        
     }
     
     public int getRank()
@@ -85,59 +87,57 @@ public class Card {
     {
         return rankToString(rank);
     }
-    
-    public void setX(int newX) 
-    {
+    public String getName() {
+    	 String rankString = ranks[rank];
+         
+         String suitString = suits[suit];
+         
+         return rankString + suitString;
+    }
+    public void setX(int newX) {
     	x = newX;
   
     }
-    public void setY(int newY) 
-    {
+    public void setY(int newY) {
     	y = newY;
   
     }
     
-    public int getX() 
-    {
+    public int getX() {
     	
     	return x;
     }
-    
-    public int getY() 
-    { 	
+    public int getY() {
+    	
     	return y;
     }
     
-    public int getPileNum() 
-    {
-    	return pileNumber;
+    public void setPileNum(int newPileNum){
+    	pileNum = newPileNum;
+    	
+    }
+    public int getPileNum(){
+    	return pileNum;
+    	
     }
     
-    public int setPileNum(int pileNumber) 
-    {
-    	this.pileNumber = pileNumber;
-    	return pileNumber;
-    }
-    
-    public int getIndex() 
-    {
-    	return index;
-    }
-    
-    public int setIndex(int index)
-    {
-    	this.index = index;
-    	return index;
-    }
-    
-    public String toString()
-    {
-        String rankString = ranks[rank];
-        
-        String suitString = suits[suit];
-        
-        return rankString + suitString;
-    }
+   
+
+	public int getIndex() {
+		return index;
+	}
+
+	public void setIndex(int index) {
+		this.index = index;
+	}
+	 public String toString()
+	    {
+	        String rankString = ranks[rank];
+	        
+	        String suitString = suits[suit];
+	        
+	        return rankString + suitString;
+	    }
 	
 
 }
