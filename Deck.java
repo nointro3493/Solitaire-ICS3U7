@@ -383,7 +383,7 @@ public class Deck
 
 	public void deal(JFrame jframe) 
 	{
-
+		
 		int cardCnt = 0;
 		int pileNum = 0;
 		xAxis = 50;
@@ -411,6 +411,7 @@ public class Deck
 				deck.get(cardCnt).getImage().setBounds(xAxis, yAxis, 100, 147);
 				deck.get(cardCnt).setX(xAxis);
 				deck.get(cardCnt).setY(yAxis);
+				deck.get(cardCnt).setPilePos(cards-1);
 				deck.get(cardCnt).setPileNum(pileNum);
 
 
@@ -448,7 +449,7 @@ public class Deck
 					pile7.add(deck.get(cardCnt));
 
 				}
-				System.out.print(deck.get(cardCnt) + " " + deck.get(cardCnt).getColor() + " " + deck.get(cardCnt).getRank() + "   ");
+				System.out.print(deck.get(cardCnt) + " " + deck.get(cardCnt).getPilePos() + "   ");
 				cardCnt++;
 			}
 			System.out.println();
@@ -508,6 +509,7 @@ public class Deck
 
 				if(pileNum == 1) {
 					if(deck.get(i).getColor() != pile1.get(pile1.size()-1).getColor() && deck.get(i).getRank() + 1 == pile1.get(pile1.size() - 1).getRank()) {
+						System.out.println("Test1");
 
 
 						prevX = 50;
@@ -526,7 +528,7 @@ public class Deck
 
 				if(pileNum == 2) {
 					if(deck.get(i).getColor() != pile2.get(pile2.size()-1).getColor() && deck.get(i).getRank() + 1 == pile2.get(pile2.size() - 1).getRank()) {
-
+						System.out.println("Test2");
 						prevX = 200;
 
 						prevY = pile2.get(pile2.size()-1).getY()+50;
@@ -546,7 +548,7 @@ public class Deck
 
 				if(pileNum == 3) {
 					if(deck.get(i).getColor() != pile3.get(pile3.size()-1).getColor() && deck.get(i).getRank() + 1 == pile3.get(pile3.size() - 1).getRank()) {
-
+						System.out.println("Test3");
 
 
 						prevX = 350;
@@ -566,7 +568,7 @@ public class Deck
 				if(pileNum == 4) {
 					if(deck.get(i).getColor() != pile4.get(pile4.size()-1).getColor() && deck.get(i).getRank() + 1 == pile4.get(pile4.size() - 1).getRank()) {
 
-
+						System.out.println("Test4");
 
 
 						prevX = 500;
@@ -586,7 +588,7 @@ public class Deck
 
 				if(pileNum == 5) {
 					if(deck.get(i).getColor() != pile5.get(pile5.size()-1).getColor() && deck.get(i).getRank() + 1 == pile5.get(pile5.size() - 1).getRank())
-
+						System.out.println("Test5");
 
 
 						prevX = 650;
@@ -606,7 +608,7 @@ public class Deck
 
 				if(pileNum == 6) {
 					if(deck.get(i).getColor() != pile6.get(pile6.size()-1).getColor() && deck.get(i).getRank() + 1 == pile6.get(pile6.size() - 1).getRank()) {
-
+						System.out.println("Test6");
 
 
 						prevX = 800;
@@ -626,7 +628,7 @@ public class Deck
 
 				if(pileNum == 7) {
 					if(deck.get(i).getColor() != pile7.get(pile7.size()-1).getColor() && deck.get(i).getRank() + 1 == pile7.get(pile7.size() - 1).getRank()) {
-
+						System.out.println("Test7");
 
 
 						prevX = 950;

@@ -20,14 +20,14 @@ public class Card {
 
     public JLabel image;
     private int pileNum;
-    private int index;
+    private int pilePos;
     
     
     private String[] ranks = {"X", "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
     
     private String[] suits = {"H", "D", "S", "C"};
     
-    public Card(int r, int s, JLabel image, int x, int y, int pileNum, int index, int color)
+    public Card(int r, int s, JLabel image, int x, int y, int pileNum, int pilePos, int color)
     {
         rank = r;
         suit = s;
@@ -35,10 +35,18 @@ public class Card {
         this.y = y;
         this.image = image;
         this.pileNum = pileNum;
-        this.setIndex(index);
+        this.pilePos = pilePos;
         this.color = color;
 
         
+    }
+    
+    public int getPilePos() {
+    	return pilePos;
+    }
+    
+    public void setPilePos( int newPilePos) {
+    	pilePos = newPilePos;
     }
     
     public int getColor() {
@@ -135,14 +143,6 @@ public class Card {
     }
     
    
-
-	public int getIndex() {
-		return index;
-	}
-
-	public void setIndex(int index) {
-		this.index = index;
-	}
 	 public String toString()
 	    {
 	        String rankString = ranks[rank];
