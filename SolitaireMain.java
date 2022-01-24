@@ -25,7 +25,7 @@ public class SolitaireMain extends Deck implements ActionListener{
 		//backImage = new ImageIcon("images/back.jpeg");
 		frame1 = new JFrame("Solitaire");
 		
-	    frame1.setSize(1200, 600);
+	    frame1.setSize(1920, 1080);
 	    frame1.setVisible(true);
 	    frame1.setLayout(null);
 	    frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
