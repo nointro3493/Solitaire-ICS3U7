@@ -333,10 +333,10 @@ public class Deck
 		int imageNum = 0;
 		deck = new ArrayList<Card>();
 
-		Card blank1 = new Card(-1, 0, aHTemp, 0, 0, 0, 0, 0);
-		Card blank2 = new Card(-1, 1, aDTemp, 0, 0, 0, 0, 0);
-		Card blank3 = new Card(-1, 2, aSTemp, 0, 0, 0, 0, 0);
-		Card blank4 = new Card(-1, 3, aCTemp, 0, 0, 0, 0, 0);
+		Card blank1 = new Card(0, 0, aHTemp, 0, 0, 0, 0, 0);
+		Card blank2 = new Card(0, 1, aDTemp, 0, 0, 0, 0, 0);
+		Card blank3 = new Card(0, 2, aSTemp, 0, 0, 0, 0, 0);
+		Card blank4 = new Card(0, 3, aCTemp, 0, 0, 0, 0, 0);
 
 		pileAC.add(blank4);
 		pileAS.add(blank3);
@@ -391,7 +391,7 @@ public class Deck
 
 		aCTemp.setBounds(40, 500, 100, 145);
 		jframe.add(aCTemp);
-		//jframe.validate();
+		jframe.validate();
 
 		aSTemp.setBounds(190, 500, 100, 145);
 		jframe.add(aSTemp);
@@ -518,7 +518,7 @@ public class Deck
 						deck.get(i).setX(prevX);
 						deck.get(i).setY(prevY);
 
-						jframe.add(deck.get(i).getImage());
+						//jframe.add(deck.get(i).getImage());
 						pile1.add(deck.get(i));
 					}
 
@@ -535,7 +535,7 @@ public class Deck
 						deck.get(i).setX(prevX);
 						deck.get(i).setY(prevY);
 
-						jframe.add(deck.get(i).getImage());
+						//jframe.add(deck.get(i).getImage());
 						pile2.add(deck.get(i));
 
 					}
@@ -557,7 +557,7 @@ public class Deck
 						deck.get(i).setX(prevX);
 						deck.get(i).setY(prevY);
 
-						jframe.add(deck.get(i).getImage());
+						//jframe.add(deck.get(i).getImage());
 						pile3.add(deck.get(i));
 					}
 
@@ -577,7 +577,7 @@ public class Deck
 						deck.get(i).setX(prevX);
 						deck.get(i).setY(prevY);
 
-						jframe.add(deck.get(i).getImage());
+						//jframe.add(deck.get(i).getImage());
 						pile4.add(deck.get(i));
 					}
 
@@ -597,7 +597,7 @@ public class Deck
 					deck.get(i).setX(prevX);
 					deck.get(i).setY(prevY);
 
-					jframe.add(deck.get(i).getImage());
+					//jframe.add(deck.get(i).getImage());
 					pile5.add(deck.get(i));
 				}
 
@@ -617,7 +617,7 @@ public class Deck
 						deck.get(i).setX(prevX);
 						deck.get(i).setY(prevY);
 
-						jframe.add(deck.get(i).getImage());
+						//jframe.add(deck.get(i).getImage());
 						pile6.add(deck.get(i));
 					}
 
@@ -637,7 +637,7 @@ public class Deck
 						deck.get(i).setX(prevX);
 						deck.get(i).setY(prevY);
 
-						jframe.add(deck.get(i).getImage());
+						//jframe.add(deck.get(i).getImage());
 						pile7.add(deck.get(i));
 
 					}
@@ -645,7 +645,7 @@ public class Deck
 
 				if(pileNum == 8) {
 					if(deck.get(i).getSuit() == pileAC.get(pileAC.size()-1).getSuit()) {// && deck.get(i).getRank() - 1 == pileAC.get(pileAC.size() - 1).getRank()) {
-
+						if(deck.get(i).getRank()  -1 ==  pileAC.get(pileAC.size() - 1).getRank()) {
 						prevX = 40;
 
 						prevY = 500;
@@ -654,15 +654,16 @@ public class Deck
 						deck.get(i).setX(prevX);
 						deck.get(i).setY(prevY);
 
-						jframe.add(deck.get(i).getImage());
+						//	jframe.add(deck.get(i).getImage());
 						pileAC.add(deck.get(i));
+						}
 
 					}
 				}
 
 				if(pileNum == 9) {
 					if(deck.get(i).getSuit() == pileAS.get(pileAS.size()-1).getSuit()) {// && deck.get(i).getRank() - 1 == pileAS.get(pileAC.size() - 1).getRank()) {
-
+						if(deck.get(i).getRank()  -1 ==  pileAS.get(pileAS.size() - 1).getRank()) {
 						prevX = 190;
 
 						prevY = 500;
@@ -671,15 +672,16 @@ public class Deck
 						deck.get(i).setX(prevX);
 						deck.get(i).setY(prevY);
 
-						jframe.add(deck.get(i).getImage());
+						//	jframe.add(deck.get(i).getImage());
 						pileAS.add(deck.get(i));
+						}
 
 					}
 				}
 
 				if(pileNum == 10) {
 					if(deck.get(i).getSuit() == pileAH.get(pileAH.size()-1).getSuit()) {// && deck.get(i).getRank() - 1 == pileAH.get(pileAH.size() - 1).getRank()) {
-
+						if(deck.get(i).getRank()  -1 ==  pileAH.get(pileAH.size() - 1).getRank()) {
 						prevX = 340;
 
 						prevY = 500;
@@ -688,26 +690,32 @@ public class Deck
 						deck.get(i).setX(prevX);
 						deck.get(i).setY(prevY);
 
-						jframe.add(deck.get(i).getImage());
+						//	jframe.add(deck.get(i).getImage());
 						pileAH.add(deck.get(i));
+						}
 
 					}
 				}
 
 				if(pileNum == 11) {
-					if(deck.get(i).getSuit() == pileAD.get(pileAD.size()-1).getSuit()) {// && deck.get(i).getRank() - 1 == pileAD.get(pileAD.size() - 1).getRank()) {
+					if(deck.get(i).getSuit() == pileAD.get(pileAD.size()-1).getSuit()) {
+						System.out.println("TESTTEST: " + deck.get(i).getRank() + "     " + pileAD.get(pileAD.size()-1).getRank());
+	
+						if(deck.get(i).getRank()  -1 ==  pileAD.get(pileAD.size() - 1).getRank()) {
+							
 
-						prevX = 490;
+							prevX = 490;
 
-						prevY = 500;
+							prevY = 500;
 
-						deck.get(i).getImage().setBounds(prevX, prevY, 100, 147);
-						deck.get(i).setX(prevX);
-						deck.get(i).setY(prevY);
+							deck.get(i).getImage().setBounds(prevX, prevY, 100, 147);
+							deck.get(i).setX(prevX);
+							deck.get(i).setY(prevY);
 
-						jframe.add(deck.get(i).getImage());
-						pileAD.add(deck.get(i));
+							//		jframe.add(deck.get(i).getImage());
+							pileAD.add(deck.get(i));
 
+						}
 					}
 				}
 			}
