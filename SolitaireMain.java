@@ -10,6 +10,7 @@ public class SolitaireMain extends Deck implements ActionListener{
 	private JButton submit;
 	private Icon backImage;
 	private JLabel bug;
+	private JLayeredPane labelFrame;
 	private Container cont;
 	public JTextField t2;
 	public JTextField t3;
@@ -19,11 +20,14 @@ public class SolitaireMain extends Deck implements ActionListener{
 	public Deck deck;
 
 	SolitaireMain(){
+		labelFrame = new JLayeredPane();
+		labelFrame.setBounds(0,0,1920,1080);
 
   
 		
 		//backImage = new ImageIcon("images/back.jpeg");
 		frame1 = new JFrame("Solitaire");
+		frame1.add(labelFrame);
 		
 	    frame1.setSize(1920, 1080);
 	    frame1.setVisible(true);
@@ -77,7 +81,7 @@ public class SolitaireMain extends Deck implements ActionListener{
 		frame1.add(yLabel);
 	  
 	    deck.shuffle();
-	    deck.deal(frame1);
+	    deck.deal(labelFrame);
 	    
 		
 		
