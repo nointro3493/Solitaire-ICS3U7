@@ -391,19 +391,19 @@ public class Deck
 		yAxis = 50;
 
 		aCTemp.setBounds(40, 500, 100, 145);
-		jframe.add(aCTemp);
+		jframe.add(aCTemp, 0);
 		//jframe.validate();
 
 		aSTemp.setBounds(190, 500, 100, 145);
-		jframe.add(aSTemp);
+		jframe.add(aSTemp, 0);
 		//		jframe.validate();
 
 		aHTemp.setBounds(340, 500, 100, 145);
-		jframe.add(aHTemp);
+		jframe.add(aHTemp, 0);
 		//jframe.validate();
 
 		aDTemp.setBounds(490, 500, 100, 145);
-		jframe.add(aDTemp);
+		jframe.add(aDTemp, 0);
 		//jframe.validate();
 
 		for(int piles = 1; piles < 8; piles++) {
