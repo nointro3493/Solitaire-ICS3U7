@@ -68,7 +68,7 @@ public class Card {
         return suit;
     }
     
-    public int getValue()
+    public int getValue() //check this
     {
         int value = rank;
         if(rank > 10)

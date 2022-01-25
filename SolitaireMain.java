@@ -8,6 +8,8 @@ public class SolitaireMain extends Deck implements ActionListener{
 	private JFrame frame1;
 	private JButton backButton;
 	private JButton submit;
+	public JButton draw;
+	private Icon deckImage;
 	private Icon backImage;
 	private JLabel bug;
 	private JLayeredPane labelFrame;
@@ -18,6 +20,7 @@ public class SolitaireMain extends Deck implements ActionListener{
 	public String pileNumText;
 	public int pileNum;
 	public Deck deck;
+	public static int buttonPress = 0;
 
 	SolitaireMain(){
 		labelFrame = new JLayeredPane();
@@ -39,35 +42,43 @@ public class SolitaireMain extends Deck implements ActionListener{
 		
 		
 
-        deck = new Deck();
-        HalfDeck halfDeck = new HalfDeck();
-        backButton = new JButton("Back");
-        backButton.setPreferredSize(new Dimension(40, 40));
-        backButton.setBounds(0, 0, 211, 50);
+		deck = new Deck();
+		backButton = new JButton("Back");
+		//backButton.setPreferredSize(new Dimension(40, 40));
+		backButton.setBounds(0, 0, 211, 50);
 		backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
 		backButton.setBorderPainted(false);
 		backButton.setOpaque(true);
 		backButton.setBackground(Color.GRAY);
 		backButton.addActionListener(this);
 		frame1.add(backButton);
+
+		submit = new JButton("Sub");
+		//submit.setPreferredSize(new Dimension(40, 40));
+		submit.setBounds(0, 100, 211, 50);
+		submit.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
+		submit.setBorderPainted(false);
+		submit.setOpaque(true);
+		submit.setBackground(Color.GRAY);
+		submit.addActionListener(this);
+		frame1.add(submit);
 		
-		 submit = new JButton("Sub");
-	     submit.setPreferredSize(new Dimension(40, 40));
-	        submit.setBounds(0, 100, 211, 50);
-			submit.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
-			submit.setBorderPainted(false);
-			submit.setOpaque(true);
-			submit.setBackground(Color.GRAY);
-			submit.addActionListener(this);
-			frame1.add(submit);
-		
-	
+		draw = new JButton();
+		//draw.setPreferredSize(new Dimension(40, 40));
+		draw.setBounds(1100, 75, 100, 147);
+		draw.setIcon(new ImageIcon("images/CardBack.png"));
+		draw.setBorderPainted(false);
+		draw.setOpaque(true);
+		draw.addActionListener(this);
+		frame1.add(draw);
+
+
 		t2=new JTextField("");  
-	    t2.setBounds(1000, 450, 150,49);
-	    t2.addActionListener(this);
-	    frame1.add(t2);
-	    
-	    t3=new JTextField("");  
+		t2.setBounds(1000, 450, 150,49);
+		t2.addActionListener(this);
+		frame1.add(t2);
+
+		t3=new JTextField("");  
 	    t3.setBounds(1000, 500, 150,49);
 	    t3.addActionListener(this);
 	    frame1.add(t3);
@@ -82,6 +93,7 @@ public class SolitaireMain extends Deck implements ActionListener{
 	  
 	    deck.shuffle();
 	    deck.deal(labelFrame);
+	    deck.remainingCards();
 	    
 		
 		
@@ -105,6 +117,11 @@ public class SolitaireMain extends Deck implements ActionListener{
 			pileNum = Integer.parseInt(pileNumText);
 			deck.moveCard(cardType,pileNum ,frame1);
 			
+		}
+		
+		if(e.getSource() == draw) {
+			deck.drawCard(labelFrame, buttonPress);
+			buttonPress++;
 		}
 	}
 }

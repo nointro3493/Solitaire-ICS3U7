@@ -23,6 +23,8 @@ public class Deck
 	int prevX;
 	int prevY;
 	int prevPile;
+	
+	private static int cardCnt = 0;
 
 	public static JLabel aH;
 	public static JLabel twoH;
@@ -94,6 +96,8 @@ public class Deck
 	public static ArrayList<Card> pileAS = new ArrayList<Card>();
 	public static ArrayList<Card> pileAH = new ArrayList<Card>();
 	public static ArrayList<Card> pileAD = new ArrayList<Card>();
+	public static ArrayList<Card> drawPile = new ArrayList<Card>();
+	public static ArrayList<Card> cardsDrawn = new ArrayList<Card>();
 	public static ArrayList<String> totalCards = new ArrayList<String>();
 	public static ArrayList<JLabel> cardImages = new ArrayList<JLabel>();
 
@@ -384,8 +388,6 @@ public class Deck
 	public void deal(JLayeredPane jframe) 
 	{
 		int layerCnt = 0;
-
-		int cardCnt = 0;
 		int pileNum = 0;
 		xAxis = 50;
 		yAxis = 50;
@@ -418,7 +420,7 @@ public class Deck
 
 				jframe.add(deck.get(cardCnt).getImage(), layerCnt);
 				jframe.validate();
-				//yAxis = yAxis +40;
+				yAxis = yAxis +40;
 
 
 				if(pileNum == 0) {
@@ -461,17 +463,16 @@ public class Deck
 			xAxis+= 150;
 
 		}
-		for(int i = 0; i < pile1.size(); i++) {
-			System.out.println(i+1 +". " + pile1.get(i));
-		}
-		System.out.println();
+	}
 
-		for(int i = 0; i < pile2.size(); i++) {
-			System.out.println(i+1 +". " + pile2.get(i));
+	public void remainingCards() {
+		
+		for (int i = cardCnt; i < deck.size() - 1; i++) {
+			drawPile.add(deck.get(i));
+			//System.out.print(drawPile.get(i));
 		}
 
 	}
-
 
 	public void moveCard(String cardType,int pileNum,JFrame jframe) {
 
@@ -721,6 +722,19 @@ public class Deck
 
 		}
 
-	} 
+	}
+	
+	public void drawCard(JLayeredPane jframe, int buttonPress) {
+		//System.out.println(drawPile.size());
+		System.out.println(buttonPress);
+		System.out.println("HI");
+		drawPile.get(buttonPress).getImage().setBounds(1225, 100, 100, 147);
+		//drawPile.get(buttonPress).getImage().setOpaque(true);
+		jframe.add(drawPile.get(buttonPress).getImage());
+
+		
+		cardsDrawn.add(drawPile.get(buttonPress));
+		drawPile.remove(buttonPress);
+	}
 
 }
