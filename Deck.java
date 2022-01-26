@@ -23,7 +23,7 @@ public class Deck
 	int prevX;
 	int prevY;
 	int prevPile;
-	int drawY = 75;
+	int drawY = 50;
 	
 	private static int cardCnt = 0;
 
@@ -421,7 +421,7 @@ public class Deck
 
 				jframe.add(deck.get(cardCnt).getImage(), layerCnt);
 				jframe.validate();
-				yAxis = yAxis +40;
+				//yAxis = yAxis +40;
 
 
 				if(pileNum == 0) {

@@ -46,8 +46,8 @@ public class SolitaireMain extends Deck implements ActionListener{
 		deck = new Deck();
 		backButton = new JButton("Back");
 		//backButton.setPreferredSize(new Dimension(40, 40));
-		backButton.setBounds(0, 0, 211, 50);
-		backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
+		backButton.setBounds(0, 0, 150, 40);
+		backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
 		backButton.setBorderPainted(false);
 		backButton.setOpaque(true);
 		backButton.setBackground(Color.GRAY);
@@ -56,7 +56,7 @@ public class SolitaireMain extends Deck implements ActionListener{
 
 		submit = new JButton("Sub");
 		//submit.setPreferredSize(new Dimension(40, 40));
-		submit.setBounds(0, 100, 211, 50);
+		submit.setBounds(775, 560, 150, 50);
 		submit.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
 		submit.setBorderPainted(false);
 		submit.setOpaque(true);
@@ -76,7 +76,7 @@ public class SolitaireMain extends Deck implements ActionListener{
 		
 		draw = new JButton();
 		//draw.setPreferredSize(new Dimension(40, 40));
-		draw.setBounds(1100, 75, 100, 147);
+		draw.setBounds(1100, 50, 100, 147);
 		draw.setIcon(new ImageIcon("images/CardBack.png"));
 		draw.setBorderPainted(false);
 		draw.setOpaque(true);
@@ -85,21 +85,21 @@ public class SolitaireMain extends Deck implements ActionListener{
 
 
 		t2=new JTextField("");  
-		t2.setBounds(1000, 450, 150,49);
+		t2.setBounds(600, 525, 150,49);
 		t2.addActionListener(this);
 		frame1.add(t2);
 
 		t3=new JTextField("");  
-	    t3.setBounds(1000, 500, 150,49);
+	    t3.setBounds(600, 600, 150,49);
 	    t3.addActionListener(this);
 	    frame1.add(t3);
 	    
-	    JLabel xLabel = new JLabel("Enter First letter or number and suit");
-	    xLabel.setBounds(760,450,500,49);
+	    JLabel xLabel = new JLabel("Enter the card");
+	    xLabel.setBounds(600, 495, 500, 49);
 		frame1.add(xLabel);
 		
 		JLabel yLabel = new JLabel("Enter the pile number");
-		yLabel.setBounds(760,475,500,49);
+		yLabel.setBounds(600, 570, 500, 49);
 		frame1.add(yLabel);
 	  
 	    deck.shuffle();
