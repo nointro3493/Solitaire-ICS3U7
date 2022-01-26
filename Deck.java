@@ -23,6 +23,7 @@ public class Deck
 	int prevX;
 	int prevY;
 	int prevPile;
+	int drawY = 75;
 	
 	private static int cardCnt = 0;
 
@@ -144,9 +145,9 @@ public class Deck
 		threeH.setIcon(new ImageIcon("images/3H.png"));
 		cardImages.add(threeH);
 
-		twoD = new JLabel();
-		twoD.setIcon(new ImageIcon("images/2D.png"));
-		cardImages.add(twoD);
+		threeD = new JLabel();
+		threeD.setIcon(new ImageIcon("images/3D.png"));
+		cardImages.add(threeD);
 
 		threeS = new JLabel();
 		threeS.setIcon(new ImageIcon("images/3S.png"));
@@ -463,18 +464,37 @@ public class Deck
 			xAxis+= 150;
 
 		}
+		
+//		for (int i = cardCnt; i < deck.size() - 1; i++) {
+//			drawPile.add(deck.get(i));
+//			//System.out.print(drawPile.get(i));
+//		}
+//		for (int i = 0; i < drawPile.size() - 1; i++) {
+//			System.out.println(drawPile.size());
+//			System.out.println(0);
+//			System.out.println("HI");
+//			drawPile.get(i).getImage().setBounds(1225, drawY, 100, 147);
+//			//drawPile.get(buttonPress).getImage().setOpaque(true);
+//			jframe.add(drawPile.get(i).getImage(), layerCnt);
+//			jframe.validate();
+//			drawY += 30;
+//			//only remove if the card goes into the deck
+//
+//			//if (cards are done) {
+//			//	re shuffle()
+//			//}
+//
+//			//drawPile.remove(0);
+//		}
 	}
 
 	public void remainingCards() {
 		
-		for (int i = cardCnt; i < deck.size() - 1; i++) {
-			drawPile.add(deck.get(i));
-			//System.out.print(drawPile.get(i));
-		}
+		
 
 	}
 
-	public void moveCard(String cardType,int pileNum,JFrame jframe) {
+	public void moveCard(String cardType,int pileNum,JLayeredPane jframe) {
 
 		for(int i = 0; i < deck.size(); i++) {
 			cardCom = deck.get(i).getName();
@@ -521,7 +541,7 @@ public class Deck
 						deck.get(i).setX(prevX);
 						deck.get(i).setY(prevY);
 
-						jframe.add(deck.get(i).getImage());
+						jframe.add(deck.get(i).getImage(), 0);
 						pile1.add(deck.get(i));
 					}
 
@@ -538,7 +558,7 @@ public class Deck
 						deck.get(i).setX(prevX);
 						deck.get(i).setY(prevY);
 
-						jframe.add(deck.get(i).getImage());
+						jframe.add(deck.get(i).getImage(), 0);
 						pile2.add(deck.get(i));
 
 					}
@@ -560,7 +580,7 @@ public class Deck
 						deck.get(i).setX(prevX);
 						deck.get(i).setY(prevY);
 
-						jframe.add(deck.get(i).getImage());
+						jframe.add(deck.get(i).getImage(), 0);
 						pile3.add(deck.get(i));
 					}
 
@@ -580,7 +600,7 @@ public class Deck
 						deck.get(i).setX(prevX);
 						deck.get(i).setY(prevY);
 
-						jframe.add(deck.get(i).getImage());
+						jframe.add(deck.get(i).getImage(), 0);
 						pile4.add(deck.get(i));
 					}
 
@@ -600,7 +620,7 @@ public class Deck
 					deck.get(i).setX(prevX);
 					deck.get(i).setY(prevY);
 
-					jframe.add(deck.get(i).getImage());
+					jframe.add(deck.get(i).getImage(), 0);
 					pile5.add(deck.get(i));
 				}
 
@@ -620,7 +640,7 @@ public class Deck
 						deck.get(i).setX(prevX);
 						deck.get(i).setY(prevY);
 
-						jframe.add(deck.get(i).getImage());
+						jframe.add(deck.get(i).getImage(), 0);
 						pile6.add(deck.get(i));
 					}
 
@@ -640,7 +660,7 @@ public class Deck
 						deck.get(i).setX(prevX);
 						deck.get(i).setY(prevY);
 
-						jframe.add(deck.get(i).getImage());
+						jframe.add(deck.get(i).getImage(), 0);
 						pile7.add(deck.get(i));
 
 					}
@@ -657,7 +677,7 @@ public class Deck
 							deck.get(i).setX(prevX);
 							deck.get(i).setY(prevY);
 
-							jframe.add(deck.get(i).getImage());
+							jframe.add(deck.get(i).getImage(), 0);
 							pileAC.add(deck.get(i));
 
 						}
@@ -675,7 +695,7 @@ public class Deck
 							deck.get(i).setX(prevX);
 							deck.get(i).setY(prevY);
 
-							jframe.add(deck.get(i).getImage());
+							jframe.add(deck.get(i).getImage(), 0);
 							pileAS.add(deck.get(i));
 
 						}
@@ -693,7 +713,7 @@ public class Deck
 							deck.get(i).setX(prevX);
 							deck.get(i).setY(prevY);
 
-							jframe.add(deck.get(i).getImage());
+							jframe.add(deck.get(i).getImage(), 0);
 							pileAH.add(deck.get(i));
 
 						}
@@ -712,7 +732,7 @@ public class Deck
 							deck.get(i).setX(prevX);
 							deck.get(i).setY(prevY);
 
-							jframe.add(deck.get(i).getImage());
+							jframe.add(deck.get(i).getImage(), 0);
 							pileAD.add(deck.get(i));
 
 						}
@@ -725,16 +745,38 @@ public class Deck
 	}
 	
 	public void drawCard(JLayeredPane jframe, int buttonPress) {
-		//System.out.println(drawPile.size());
+		for (int i = cardCnt; i < deck.size() - 1; i++) {
+			drawPile.add(deck.get(i));
+			//System.out.print(drawPile.get(i));
+		}
+		int count = 0;
+		System.out.println(drawPile.size());
 		System.out.println(buttonPress);
 		System.out.println("HI");
-		drawPile.get(buttonPress).getImage().setBounds(1225, 100, 100, 147);
+		drawPile.get(buttonPress).getImage().setBounds(1225, drawY, 100, 147);
 		//drawPile.get(buttonPress).getImage().setOpaque(true);
-		jframe.add(drawPile.get(buttonPress).getImage());
+		jframe.add(drawPile.get(buttonPress).getImage(), 0);
+		jframe.validate();
+		drawY += 30;
+		count++;
+		//only remove if the card goes into the deck
 
-		
-		cardsDrawn.add(drawPile.get(buttonPress));
+		//if (cards are done) {
+		//	re shuffle()
+		//}
+
 		drawPile.remove(buttonPress);
+	}
+	
+	public boolean win() {
+		
+		if (pileAC.size() == 12 && pileAS.size() == 12 && pileAH.size() == 12 && pileAD.size() == 12) {
+			return true;
+		} 
+		
+		else {
+			return false;
+		}
 	}
 
 }

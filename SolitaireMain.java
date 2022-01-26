@@ -9,6 +9,7 @@ public class SolitaireMain extends Deck implements ActionListener{
 	private JButton backButton;
 	private JButton submit;
 	public JButton draw;
+	public JButton checkWin;
 	private Icon deckImage;
 	private Icon backImage;
 	private JLabel bug;
@@ -63,6 +64,16 @@ public class SolitaireMain extends Deck implements ActionListener{
 		submit.addActionListener(this);
 		frame1.add(submit);
 		
+		checkWin = new JButton("Check Win");
+		//submit.setPreferredSize(new Dimension(40, 40));
+		checkWin.setBounds(50, 700, 211, 50);
+		checkWin.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
+		checkWin.setBorderPainted(false);
+		checkWin.setOpaque(true);
+		checkWin.setBackground(Color.GRAY);
+		checkWin.addActionListener(this);
+		frame1.add(checkWin);
+		
 		draw = new JButton();
 		//draw.setPreferredSize(new Dimension(40, 40));
 		draw.setBounds(1100, 75, 100, 147);
@@ -115,13 +126,16 @@ public class SolitaireMain extends Deck implements ActionListener{
 			cardType = t2.getText();
 			pileNumText = t3.getText();
 			pileNum = Integer.parseInt(pileNumText);
-			deck.moveCard(cardType,pileNum ,frame1);
+			deck.moveCard(cardType,pileNum, labelFrame);
 			
 		}
 		
 		if(e.getSource() == draw) {
 			deck.drawCard(labelFrame, buttonPress);
-			buttonPress++;
+		}
+		
+		if (e.getSource() == checkWin) {
+			System.out.println(deck.win());
 		}
 	}
 }
