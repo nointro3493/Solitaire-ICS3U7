@@ -44,7 +44,7 @@ public class SolitaireMain extends Deck implements ActionListener{
 		
 
 		deck = new Deck();
-		backButton = new JButton("Back");
+		backButton = new JButton("Quit");
 		//backButton.setPreferredSize(new Dimension(40, 40));
 		backButton.setBounds(0, 0, 150, 40);
 		backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
@@ -95,16 +95,17 @@ public class SolitaireMain extends Deck implements ActionListener{
 	    frame1.add(t3);
 	    
 	    JLabel xLabel = new JLabel("Enter the card");
+	    xLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
 	    xLabel.setBounds(600, 495, 500, 49);
 		frame1.add(xLabel);
 		
 		JLabel yLabel = new JLabel("Enter the pile number");
+		yLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 13));
 		yLabel.setBounds(600, 570, 500, 49);
 		frame1.add(yLabel);
 	  
 	    deck.shuffle();
 	    deck.deal(labelFrame);
-	    deck.remainingCards();
 	    
 		
 		
@@ -117,8 +118,8 @@ public class SolitaireMain extends Deck implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
 		if(e.getSource() == backButton) {
-			StartMenu startmenu = new StartMenu();		
 			frame1.setVisible(false);
 		
 		}
@@ -126,12 +127,13 @@ public class SolitaireMain extends Deck implements ActionListener{
 			cardType = t2.getText();
 			pileNumText = t3.getText();
 			pileNum = Integer.parseInt(pileNumText);
-			deck.moveCard(cardType,pileNum, labelFrame);
+			deck.moveCard(cardType, pileNum, labelFrame);
 			
 		}
 		
-		if(e.getSource() == draw) {
+		if(e.getSource() == draw && buttonPress < 23) {
 			deck.drawCard(labelFrame, buttonPress);
+			 buttonPress++;
 		}
 		
 		if (e.getSource() == checkWin) {
