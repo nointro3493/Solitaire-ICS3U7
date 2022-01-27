@@ -34,31 +34,31 @@ public class SolitaireMain extends Deck implements ActionListener{
 	public static JLabel p9 = new JLabel("9");
 	public static JLabel p10 = new JLabel("10");
 	public static JLabel p11 = new JLabel("11");
+	
+	/**
+	 * 
+	 */
 
 	SolitaireMain(){
-		labelFrame = new JLayeredPane();
-		labelFrame.setBounds(0, 0, 1920, 1080);
-
-  
+		labelFrame = new JLayeredPane();		 //The label frame is a layered pane that is added into the main frame
+		labelFrame.setBounds(0, 0, 1920, 1080); //It is used to make sure that all the cards are layered correctly when they are moved
 		
-		//backImage = new ImageIcon("images/back.jpeg");
-		frame1 = new JFrame("Solitaire");
-		frame1.add(labelFrame);
-		
+		frame1 = new JFrame("Solitaire");		//Frame 1 is the main frame of the SpadeAce game. It contains all the necessary
+		frame1.add(labelFrame);					// Buttons, and textfields needed to make sure of smooth gameplay.
 	    frame1.setSize(1920, 1080);
 	    frame1.setVisible(true);
 	    frame1.setLayout(null);
 	    frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame1.getContentPane().setBackground(Color.GREEN);
+		
 		
 		
 		
 		
 
-		deck = new Deck();
-		backButton = new JButton("Quit");
-		//backButton.setPreferredSize(new Dimension(40, 40));
-		backButton.setBounds(1290, 0, 150, 40);
+		deck = new Deck();						// This line here calls upon the deck class method
+		
+		backButton = new JButton("Quit");		// The back button is used to allow the player to quit the game.
+		backButton.setBounds(1290, 0, 150, 40); // it consists of actions listeners to check for actions
 		backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
 		backButton.setBorderPainted(false);
 		backButton.setOpaque(true);
@@ -66,9 +66,9 @@ public class SolitaireMain extends Deck implements ActionListener{
 		backButton.addActionListener(this);
 		frame1.add(backButton);
 
-		submit = new JButton("Sub");
-		//submit.setPreferredSize(new Dimension(40, 40));
-		submit.setBounds(775, 560, 150, 50);
+		submit = new JButton("Sub");			// This is the submit button. Once a user enters their
+		submit.setBounds(775, 560, 150, 50);	// card to move and the pile number, this method is used so that
+												// computer can read what has been inputted.
 		submit.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
 		submit.setBorderPainted(false);
 		submit.setOpaque(true);
@@ -76,9 +76,8 @@ public class SolitaireMain extends Deck implements ActionListener{
 		submit.addActionListener(this);
 		frame1.add(submit);
 		
-		checkWin = new JButton("Check Win");
-		//submit.setPreferredSize(new Dimension(40, 40));
-		checkWin.setBounds(50, 700, 211, 50);
+		checkWin = new JButton("Check Win");	// Once a user feels that they have completed the required tasks to win the game
+		checkWin.setBounds(50, 700, 211, 50);	// They can ask the computer to check if they have won or not.
 		checkWin.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
 		checkWin.setBorderPainted(false);
 		checkWin.setOpaque(true);
@@ -86,9 +85,8 @@ public class SolitaireMain extends Deck implements ActionListener{
 		checkWin.addActionListener(this);
 		frame1.add(checkWin);
 		
-		draw = new JButton();
-		//draw.setPreferredSize(new Dimension(40, 40));
-		draw.setBounds(1100, 50, 100, 147);
+		draw = new JButton();					// This button is used to access the cards 
+		draw.setBounds(1100, 50, 100, 147);		// that have not been placed onto the deck
 		draw.setIcon(new ImageIcon("images/CardBack.png"));
 		draw.setBorderPainted(false);
 		draw.setOpaque(true);
@@ -96,26 +94,29 @@ public class SolitaireMain extends Deck implements ActionListener{
 		frame1.add(draw, 0);
 
 
-		t2=new JTextField("");  
+		t2=new JTextField("");  			  //This text field reads the card type
 		t2.setBounds(600, 525, 150,49);
 		t2.addActionListener(this);
 		frame1.add(t2, 0);
 
-		t3=new JTextField("");  
+		t3=new JTextField("");  			// This text field reads the pile number
 	    t3.setBounds(600, 600, 150,49);
 	    t3.addActionListener(this);
 	    frame1.add(t3, 0);
 	    
-	    JLabel xLabel = new JLabel("Enter the card");
-	    xLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+	    JLabel xLabel = new JLabel("Enter the card"); 				//This label over here is help the user understand what the corresponding
+	    xLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 15));	//text field is for
 	    xLabel.setBounds(600, 495, 500, 49);
 		frame1.add(xLabel, 0);
 		
-		JLabel yLabel = new JLabel("Enter the pile number");
-		yLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 13));
+		JLabel yLabel = new JLabel("Enter the pile number");		//This label over here is help the user understand what the corresponding
+		yLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 13));	//text field is for
 		yLabel.setBounds(600, 570, 500, 49);
 		frame1.add(yLabel, 0);
 		
+		
+		//All of the labels starting with p are used to label the pile numbers
+		// to provide simplicity for the user to understand their numbers
 		p1.setBounds(95, 30, 100, 20);
 		p1.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
 		frame1.add(p1, 0);
@@ -160,7 +161,7 @@ public class SolitaireMain extends Deck implements ActionListener{
 		p11.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
 		frame1.add(p11, 0);
 		
-		gameBg.setIcon(new ImageIcon("images/backgroundImage.jpg"));
+		gameBg.setIcon(new ImageIcon("images/backgroundImage.jpg")); // These lines of the code are used to set the background image of the main file
 		gameBg.setBounds(0, 0, 1920, 1080);
 		frame1.add(gameBg);	
 		frame1.validate();
@@ -171,6 +172,10 @@ public class SolitaireMain extends Deck implements ActionListener{
 		
 		
 	}
+	/**
+	 * This Method is the main method for the spade ace game
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		//new SolitaireMain();
 		new StartMenu();
@@ -178,18 +183,20 @@ public class SolitaireMain extends Deck implements ActionListener{
 	}
 
 	@Override
+	/**
+	 * This method check for the actions performed throughout the Mainframe
+	 */
 	public void actionPerformed(ActionEvent e) {
 		
-		if(e.getSource() == backButton) {
+		if(e.getSource() == backButton) { // Checks if the exit button has been pressed
 			frame1.setVisible(false);
 		
 		}
-		if(e.getSource()== submit) {
-			cardType = t2.getText().toUpperCase();
-			
+		if(e.getSource()== submit) {     // Checks the if the submit button has been pressed
+			cardType = t2.getText().toUpperCase(); // Makes user input uppercase for the card type
 			pileNumText = t3.getText();
-			pileNum = Integer.parseInt(pileNumText);
-			deck.moveCard(cardType, pileNum, labelFrame);
+			pileNum = Integer.parseInt(pileNumText); // turns the string pilenum into a number
+			deck.moveCard(cardType, pileNum, labelFrame); //move card method is called
 			
 		}
 		
@@ -199,7 +206,7 @@ public class SolitaireMain extends Deck implements ActionListener{
 		}
 		
 		if (e.getSource() == checkWin) {
-			System.out.println(deck.win(frame1));
+				
 		}
 	}
 }
