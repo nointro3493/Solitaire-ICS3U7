@@ -163,6 +163,7 @@ public class SolitaireMain extends Deck implements ActionListener{
 		gameBg.setIcon(new ImageIcon("images/backgroundImage.jpg"));
 		gameBg.setBounds(0, 0, 1920, 1080);
 		frame1.add(gameBg);	
+		frame1.validate();
 		
 	    deck.shuffle();
 	    deck.deal(labelFrame);
