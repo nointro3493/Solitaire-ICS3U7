@@ -51,9 +51,7 @@ public class SolitaireMain extends Deck implements ActionListener{
 	    frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame1.getContentPane().setBackground(Color.GREEN);
 		
-		gameBg.setIcon(new ImageIcon("images/backgroundImage.jpeg"));
-		gameBg.setBounds(0, 0, 1920, 1080);
-		frame1.add(gameBg);	
+		
 		
 		
 
@@ -161,6 +159,10 @@ public class SolitaireMain extends Deck implements ActionListener{
 		p11.setBounds(535, 650, 100, 20);
 		p11.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
 		frame1.add(p11, 0);
+		
+		gameBg.setIcon(new ImageIcon("images/backgroundImage.jpg"));
+		gameBg.setBounds(0, 0, 1920, 1080);
+		frame1.add(gameBg);	
 		
 	    deck.shuffle();
 	    deck.deal(labelFrame);
