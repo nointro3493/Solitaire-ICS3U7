@@ -84,6 +84,7 @@ public class Deck
 	public static JLabel aHTemp;
 	public static JLabel aSTemp;
 	public static JLabel aCTemp;
+	public static int count = 0;
 
 	public static int cardNum;
 	public static String cardCom;
@@ -422,7 +423,7 @@ public class Deck
 
 				jframe.add(deck.get(cardCnt).getImage(), layerCnt);
 				jframe.validate();
-				//yAxis = yAxis +40;
+				yAxis = yAxis +40;
 
 
 				if(pileNum == 0) {
@@ -465,6 +466,10 @@ public class Deck
 			xAxis+= 150;
 
 		}
+		for (int i = cardCnt; i <= 53; i++) {
+			drawPile.add(deck.get(i));
+			//System.out.print(drawPile.get(i));
+		}
 
 	}
 
@@ -500,6 +505,19 @@ public class Deck
 
 				else if (pile7.contains(deck.get(i))){
 					pile7.remove(deck.get(i));
+				}
+				else if(pileAC.contains(deck.get(i))) {
+					pileAC.remove(deck.get(i));
+					
+				}
+				else if(pileAS.contains(deck.get(i))) {
+					pileAS.remove(deck.get(i));
+				}
+				else if(pileAH.contains(deck.get(i))) {
+					pileAH.remove(deck.get(i));
+				}
+				else if(pileAD.contains(deck.get(i))) {
+					pileAD.remove(deck.get(i));
 				}
 
 
@@ -778,7 +796,7 @@ public class Deck
 							deck.get(i).setX(prevX);
 							deck.get(i).setY(prevY);
 
-							jframe.add(deck.get(i).getImage(), 0);
+						//	jframe.add(deck.get(i).getImage(), 0);
 							pileAC.add(deck.get(i));
 
 						}
@@ -798,7 +816,7 @@ public class Deck
 							deck.get(i).setX(prevX);
 							deck.get(i).setY(prevY);
 
-							jframe.add(deck.get(i).getImage(), 0);
+						//	jframe.add(deck.get(i).getImage(), 0);
 							pileAS.add(deck.get(i));
 
 						}
@@ -818,7 +836,7 @@ public class Deck
 							deck.get(i).setX(prevX);
 							deck.get(i).setY(prevY);
 
-							jframe.add(deck.get(i).getImage(), 0);
+						//	jframe.add(deck.get(i).getImage(), 0);
 							pileAH.add(deck.get(i));
 
 						}
@@ -839,7 +857,7 @@ public class Deck
 							deck.get(i).setX(prevX);
 							deck.get(i).setY(prevY);
 
-							jframe.add(deck.get(i).getImage(), 0);
+							//jframe.add(deck.get(i).getImage(), 0);
 							pileAD.add(deck.get(i));
 
 						}
@@ -853,16 +871,12 @@ public class Deck
 		}
 
 	}
+	
 
 	public void drawCard(JLayeredPane jframe, int buttonPress) {
-		for (int i = cardCnt; i < deck.size() - 1; i++) {
-			drawPile.add(deck.get(i));
-			//System.out.print(drawPile.get(i));
-		}
-		int count = 0;
+		
+		
 		System.out.println(drawPile.size());
-		System.out.println(0);
-		System.out.println("HI");
 		drawPile.get(0).getImage().setBounds(1225, drawY, 100, 147);
 		//drawPile.get(buttonPress).getImage().setOpaque(true);
 		jframe.add(drawPile.get(0).getImage(), 0);
@@ -876,6 +890,12 @@ public class Deck
 		//}
 
 		drawPile.remove(0);
+		System.out.println(count);
+		
+		if(count == 23) {
+			drawPile.get(drawPile.size()-1).getImage().setBounds(1225, drawY, 100, 147);
+			jframe.add(drawPile.get(drawPile.size()-1).getImage(), 0);
+		}
 	}
 
 	public boolean win() {
@@ -888,7 +908,7 @@ public class Deck
 			return true;
 		} 
 
-		else {
+		else {	
 			return false;
 		}
 	}

@@ -185,7 +185,8 @@ public class SolitaireMain extends Deck implements ActionListener{
 		
 		}
 		if(e.getSource()== submit) {
-			cardType = t2.getText();
+			cardType = t2.getText().toUpperCase();
+			
 			pileNumText = t3.getText();
 			pileNum = Integer.parseInt(pileNumText);
 			deck.moveCard(cardType, pileNum, labelFrame);
