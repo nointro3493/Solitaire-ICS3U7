@@ -575,9 +575,9 @@ public class Deck
 							isLegal = true;
 							prevX = 50;
 
-							prevY = pile1.get(pile1.size()-1).getY()+50;
+							prevY = pile1.get(pile1.size()-1).getY()+30;
 
-							deck.get(i).getImage().setBounds(prevX,prevY + 20,100,147);
+							deck.get(i).getImage().setBounds(prevX,prevY,100,147);
 							deck.get(i).setX(prevX);
 							deck.get(i).setY(prevY);
 
@@ -611,9 +611,9 @@ public class Deck
 							isLegal = true;
 							prevX = 200;
 
-							prevY = pile2.get(pile2.size()-1).getY()+50;
+							prevY = pile2.get(pile2.size()-1).getY()+30;
 
-							deck.get(i).getImage().setBounds(prevX,prevY + 20,100,147);
+							deck.get(i).getImage().setBounds(prevX,prevY,100,147);
 							deck.get(i).setX(prevX);
 							deck.get(i).setY(prevY);
 
@@ -653,9 +653,9 @@ public class Deck
 
 							prevX = 350;
 
-							prevY = pile3.get(pile3.size()-1).getY()+50;
+							prevY = pile3.get(pile3.size()-1).getY()+30;
 
-							deck.get(i).getImage().setBounds(prevX, prevY + 20, 100, 147);
+							deck.get(i).getImage().setBounds(prevX, prevY, 100, 147);
 							deck.get(i).setX(prevX);
 							deck.get(i).setY(prevY);
 
@@ -689,9 +689,9 @@ public class Deck
 
 							prevX = 500;
 
-							prevY = pile4.get(pile4.size()-1).getY()+50;
+							prevY = pile4.get(pile4.size()-1).getY()+30;
 
-							deck.get(i).getImage().setBounds(prevX,prevY+20,100,147);
+							deck.get(i).getImage().setBounds(prevX,prevY,100,147);
 							deck.get(i).setX(prevX);
 							deck.get(i).setY(prevY);
 
@@ -730,9 +730,9 @@ public class Deck
 
 							prevX = 650;
 
-							prevY = pile5.get(pile5.size()-1).getY()+50;
+							prevY = pile5.get(pile5.size()-1).getY()+30;
 
-							deck.get(i).getImage().setBounds(prevX,prevY+20,100,147);
+							deck.get(i).getImage().setBounds(prevX,prevY,100,147);
 							deck.get(i).setX(prevX);
 							deck.get(i).setY(prevY);
 
@@ -771,9 +771,9 @@ public class Deck
 
 							prevX = 800;
 
-							prevY = pile6.get(pile6.size()-1).getY()+50;
+							prevY = pile6.get(pile6.size()-1).getY()+30;
 
-							deck.get(i).getImage().setBounds(prevX,prevY+20,100,147);
+							deck.get(i).getImage().setBounds(prevX,prevY,100,147);
 							deck.get(i).setX(prevX);
 							deck.get(i).setY(prevY);
 
@@ -808,9 +808,9 @@ public class Deck
 
 							prevX = 950;
 
-							prevY = pile7.get(pile7.size()-1).getY()+50;
+							prevY = pile7.get(pile7.size()-1).getY()+30;
 
-							deck.get(i).getImage().setBounds(prevX,prevY+20,100,147);
+							deck.get(i).getImage().setBounds(prevX,prevY,100,147);
 							deck.get(i).setX(prevX);
 							deck.get(i).setY(prevY);
 
