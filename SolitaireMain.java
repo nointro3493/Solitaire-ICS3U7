@@ -22,10 +22,22 @@ public class SolitaireMain extends Deck implements ActionListener{
 	public int pileNum;
 	public Deck deck;
 	public static int buttonPress = 0;
+	public JLabel gameBg = new JLabel();
+	public static JLabel p1 = new JLabel("1");
+	public static JLabel p2 = new JLabel("2");
+	public static JLabel p3 = new JLabel("3");
+	public static JLabel p4 = new JLabel("4");
+	public static JLabel p5 = new JLabel("5");
+	public static JLabel p6 = new JLabel("6");
+	public static JLabel p7 = new JLabel("7");
+	public static JLabel p8 = new JLabel("8");
+	public static JLabel p9 = new JLabel("9");
+	public static JLabel p10 = new JLabel("10");
+	public static JLabel p11 = new JLabel("11");
 
 	SolitaireMain(){
 		labelFrame = new JLayeredPane();
-		labelFrame.setBounds(0,0,1920,1080);
+		labelFrame.setBounds(0, 0, 1920, 1080);
 
   
 		
@@ -39,14 +51,16 @@ public class SolitaireMain extends Deck implements ActionListener{
 	    frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame1.getContentPane().setBackground(Color.GREEN);
 		
-		
+		gameBg.setIcon(new ImageIcon("images/backgroundImage.jpeg"));
+		gameBg.setBounds(0, 0, 1920, 1080);
+		frame1.add(gameBg);	
 		
 		
 
 		deck = new Deck();
 		backButton = new JButton("Quit");
 		//backButton.setPreferredSize(new Dimension(40, 40));
-		backButton.setBounds(0, 0, 150, 40);
+		backButton.setBounds(1290, 0, 150, 40);
 		backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
 		backButton.setBorderPainted(false);
 		backButton.setOpaque(true);
@@ -81,29 +95,73 @@ public class SolitaireMain extends Deck implements ActionListener{
 		draw.setBorderPainted(false);
 		draw.setOpaque(true);
 		draw.addActionListener(this);
-		frame1.add(draw);
+		frame1.add(draw, 0);
 
 
 		t2=new JTextField("");  
 		t2.setBounds(600, 525, 150,49);
 		t2.addActionListener(this);
-		frame1.add(t2);
+		frame1.add(t2, 0);
 
 		t3=new JTextField("");  
 	    t3.setBounds(600, 600, 150,49);
 	    t3.addActionListener(this);
-	    frame1.add(t3);
+	    frame1.add(t3, 0);
 	    
 	    JLabel xLabel = new JLabel("Enter the card");
 	    xLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
 	    xLabel.setBounds(600, 495, 500, 49);
-		frame1.add(xLabel);
+		frame1.add(xLabel, 0);
 		
 		JLabel yLabel = new JLabel("Enter the pile number");
 		yLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 13));
 		yLabel.setBounds(600, 570, 500, 49);
-		frame1.add(yLabel);
+		frame1.add(yLabel, 0);
+		
+		p1.setBounds(95, 30, 100, 20);
+		p1.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		frame1.add(p1, 0);
+		
+		p2.setBounds(245, 30, 100, 20);
+		p2.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		frame1.add(p2, 0);
+		
+		p3.setBounds(395, 30, 100, 20);
+		p3.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		frame1.add(p3, 0);
+		
+		p4.setBounds(545, 30, 100, 20);
+		p4.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		frame1.add(p4, 0);
+		
+		p5.setBounds(695, 30, 100, 20);
+		p5.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		frame1.add(p5, 0);
+		
+		p6.setBounds(845, 30, 100, 20);
+		p6.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		frame1.add(p6, 0);
+		
+		p7.setBounds(995, 30, 100, 20);
+		p7.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		frame1.add(p7, 0);
+		
+		p8.setBounds(85, 650, 100, 20);
+		p8.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		frame1.add(p8, 0);
 	  
+		p9.setBounds(235, 650, 100, 20);
+		p9.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		frame1.add(p9, 0);
+		
+		p10.setBounds(385, 650, 100, 20);
+		p10.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		frame1.add(p10, 0);
+		
+		p11.setBounds(535, 650, 100, 20);
+		p11.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		frame1.add(p11, 0);
+		
 	    deck.shuffle();
 	    deck.deal(labelFrame);
 	    

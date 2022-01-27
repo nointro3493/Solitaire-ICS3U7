@@ -470,11 +470,10 @@ public class Deck
 
 
 	public void moveCard(String cardType,int pileNum,JLayeredPane jframe) {
-
+		boolean isLegal = false;
 		for(int i = 0; i < deck.size(); i++) {
 			cardCom = deck.get(i).getName();
 			if(cardCom.equals(cardType)) {
-
 				if(pile1.contains(deck.get(i))) {
 					pile1.remove(deck.get(i));
 				}
@@ -508,7 +507,7 @@ public class Deck
 					if (pile1.size() > 0) {
 						if(deck.get(i).getColor() != pile1.get(pile1.size()-1).getColor() && deck.get(i).getRank() + 1 == pile1.get(pile1.size() - 1).getRank()) {
 
-
+							isLegal = true;
 							prevX = 50;
 
 							prevY = pile1.get(pile1.size()-1).getY()+50;
@@ -522,7 +521,7 @@ public class Deck
 						}
 					}
 					else if (pile1.size() == 0) {
-
+						isLegal = true;
 						prevX = 50;
 
 						prevY = 50;
@@ -541,6 +540,7 @@ public class Deck
 					if (pile2.size() > 0) {
 						if(deck.get(i).getColor() != pile2.get(pile2.size()-1).getColor() && deck.get(i).getRank() + 1 == pile2.get(pile2.size() - 1).getRank()) {
 
+							isLegal = true;
 							prevX = 200;
 
 							prevY = pile2.get(pile2.size()-1).getY()+50;
@@ -557,6 +557,7 @@ public class Deck
 
 					else if (pile2.size() == 0) {
 
+						isLegal = true;
 						prevX = 200;
 
 						prevY = 50;
@@ -576,6 +577,8 @@ public class Deck
 				if(pileNum == 3) {
 					if (pile3.size() > 0) {
 						if(deck.get(i).getColor() != pile3.get(pile3.size()-1).getColor() && deck.get(i).getRank() + 1 == pile3.get(pile3.size() - 1).getRank()) {
+							
+							isLegal = true;
 
 
 
@@ -594,6 +597,7 @@ public class Deck
 					}
 					else if (pile3.size() == 0) {
 
+						isLegal = true;
 						prevX = 350;
 
 						prevY = 50;
@@ -611,6 +615,7 @@ public class Deck
 					if (pile4.size() > 0) {
 						if(deck.get(i).getColor() != pile4.get(pile4.size()-1).getColor() && deck.get(i).getRank() + 1 == pile4.get(pile4.size() - 1).getRank()) {
 
+							isLegal = true;
 
 							prevX = 500;
 
@@ -626,6 +631,8 @@ public class Deck
 					}
 
 					else if (pile4.size() == 0) {
+						
+						isLegal = true;
 
 						prevX = 500;
 
@@ -645,6 +652,8 @@ public class Deck
 				if(pileNum == 5) {
 					if (pile5.size() > 0) {
 						if(deck.get(i).getColor() != pile5.get(pile5.size()-1).getColor() && deck.get(i).getRank() + 1 == pile5.get(pile5.size() - 1).getRank()) {
+							
+							isLegal = true;
 
 
 
@@ -662,6 +671,8 @@ public class Deck
 						}
 					}
 					else if (pile5.size() == 0) {
+						
+						isLegal = true;
 
 						prevX = 650;
 
@@ -684,7 +695,7 @@ public class Deck
 					if (pile6.size() > 0) {
 						if(deck.get(i).getColor() != pile6.get(pile6.size()-1).getColor() && deck.get(i).getRank() + 1 == pile6.get(pile6.size() - 1).getRank()) {
 
-
+							isLegal = true;
 
 							prevX = 800;
 
@@ -700,6 +711,8 @@ public class Deck
 
 					}
 					else if (pile6.size() == 0) {
+						
+						isLegal = true;
 
 						prevX = 800;
 
@@ -718,7 +731,7 @@ public class Deck
 					if (pile7.size() > 0) {
 						if(deck.get(i).getColor() != pile7.get(pile7.size()-1).getColor() && deck.get(i).getRank() + 1 == pile7.get(pile7.size() - 1).getRank()) {
 
-
+							isLegal = true;
 
 							prevX = 950;
 
@@ -735,6 +748,8 @@ public class Deck
 					}
 
 					else if (pile7.size() == 0) {
+						
+						isLegal = true;
 
 						prevX = 950;
 
@@ -753,6 +768,8 @@ public class Deck
 				if(pileNum == 8) {
 					if(deck.get(i).getSuit() == pileAC.get(pileAC.size()-1).getSuit()) {// && deck.get(i).getRank() - 1 == pileAC.get(pileAC.size() - 1).getRank()) {
 						if(deck.get(i).getRank()  -1 ==  pileAC.get(pileAC.size() - 1).getRank()) {
+							
+							isLegal = true;
 							prevX = 40;
 
 							prevY = 500;
@@ -771,6 +788,8 @@ public class Deck
 				if(pileNum == 9) {
 					if(deck.get(i).getSuit() == pileAS.get(pileAS.size()-1).getSuit()) {// && deck.get(i).getRank() - 1 == pileAS.get(pileAC.size() - 1).getRank()) {
 						if(deck.get(i).getRank()  -1 ==  pileAS.get(pileAS.size() - 1).getRank()) {
+							
+							isLegal = true;
 							prevX = 190;
 
 							prevY = 500;
@@ -789,6 +808,8 @@ public class Deck
 				if(pileNum == 10) {
 					if(deck.get(i).getSuit() == pileAH.get(pileAH.size()-1).getSuit()) {// && deck.get(i).getRank() - 1 == pileAH.get(pileAH.size() - 1).getRank()) {
 						if(deck.get(i).getRank()  -1 ==  pileAH.get(pileAH.size() - 1).getRank()) {
+							
+							isLegal = true;
 							prevX = 340;
 
 							prevY = 500;
@@ -807,6 +828,8 @@ public class Deck
 				if(pileNum == 11) {
 					if(deck.get(i).getSuit() == pileAD.get(pileAD.size()-1).getSuit()) {// && deck.get(i).getRank() - 1 == pileAD.get(pileAD.size() - 1).getRank()) {
 						if(deck.get(i).getRank() -1 ==  pileAD.get(pileAD.size() - 1).getRank()) {
+							
+							isLegal = true;
 
 							prevX = 490;
 
@@ -824,6 +847,9 @@ public class Deck
 				}
 			}
 
+		}
+		if (!isLegal) {
+			JOptionPane.showMessageDialog(jframe, "Illegal move. Try again.", "Illegal Movement", JOptionPane.ERROR_MESSAGE);
 		}
 
 	}
@@ -853,8 +879,12 @@ public class Deck
 	}
 
 	public boolean win() {
-
-		if (pileAC.size() == 13 && pileAS.size() == 13 && pileAH.size() == 13 && pileAD.size() == 13) {
+		System.out.println(pileAC.size());
+		System.out.println(pileAS.size());
+		System.out.println(pileAH.size());
+		System.out.println(pileAD.size());
+		
+		if (pileAC.size() == 15 && pileAS.size() == 15 && pileAH.size() == 15 && pileAD.size() == 15) {
 			return true;
 		} 
 
