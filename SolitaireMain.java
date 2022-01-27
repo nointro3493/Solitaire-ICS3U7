@@ -199,7 +199,7 @@ public class SolitaireMain extends Deck implements ActionListener{
 		}
 		
 		if (e.getSource() == checkWin) {
-			System.out.println(deck.win());
+			System.out.println(deck.win(frame1));
 		}
 	}
 }

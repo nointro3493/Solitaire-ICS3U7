@@ -466,7 +466,7 @@ public class Deck
 			xAxis+= 150;
 
 		}
-		for (int i = cardCnt; i <= 53; i++) {
+		for (int i = cardCnt; i < 52; i++) {
 			drawPile.add(deck.get(i));
 			//System.out.print(drawPile.get(i));
 		}
@@ -898,17 +898,23 @@ public class Deck
 		}
 	}
 
-	public boolean win() {
+	public boolean win(JFrame jframe) {	
+		
+		
 		System.out.println(pileAC.size());
 		System.out.println(pileAS.size());
 		System.out.println(pileAH.size());
 		System.out.println(pileAD.size());
 		
 		if (pileAC.size() == 15 && pileAS.size() == 15 && pileAH.size() == 15 && pileAD.size() == 15) {
+			WinClass win = new WinClass();
+			jframe.setVisible(false);
+			
 			return true;
 		} 
 
 		else {	
+			JOptionPane.showMessageDialog(jframe,"Nope you didn't win. Try Again!!", "Not a Winner", JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
 	}
