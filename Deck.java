@@ -38,13 +38,21 @@ public class Deck
 
 	// Declaration of all the cards
 	public static JLabel aH;
+	
 	public static JLabel twoH;
+	
 	public static JLabel threeH;
+	
 	public static JLabel fourH;
+	
 	public static JLabel fiveH;
+	
 	public static JLabel sixH;
+	
 	public static JLabel sevenH;
+	
 	public static JLabel eightH;
+	
 	public static JLabel nineH;
 	public static JLabel tenH;
 	public static JLabel jH;
@@ -632,7 +640,9 @@ public class Deck
 						prevY = 50;
 
 						deck.get(i).getImage().setBounds(prevX,prevY, 100, 147);
+						
 						deck.get(i).setX(prevX);
+						
 						deck.get(i).setY(prevY);
 
 						jframe.add(deck.get(i).getImage(), 0);
@@ -657,7 +667,9 @@ public class Deck
 							prevY = pile3.get(pile3.size()-1).getY()+30;
 
 							deck.get(i).getImage().setBounds(prevX, prevY, 100, 147);
+							
 							deck.get(i).setX(prevX);
+							
 							deck.get(i).setY(prevY);
 
 							jframe.add(deck.get(i).getImage(), 0);
