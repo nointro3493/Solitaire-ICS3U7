@@ -192,12 +192,18 @@ public class SolitaireMain extends Deck implements ActionListener{
 			frame1.setVisible(false);
 		
 		}
-		if(e.getSource()== submit) {     // Checks the if the submit button has been pressed
+		if(e.getSource()== submit) { 
+			
+			// Checks the if the submit button has been pressed
+			try {
 			cardType = t2.getText().toUpperCase(); // Makes user input uppercase for the card type
 			pileNumText = t3.getText();
 			pileNum = Integer.parseInt(pileNumText); // turns the string pilenum into a number
 			deck.moveCard(cardType, pileNum, labelFrame); //move card method is called
-			
+			}
+			catch(NumberFormatException e1) {
+				JOptionPane.showMessageDialog(frame1, "Illegal move. Try again.", "Illegal Movement", JOptionPane.ERROR_MESSAGE);
+			}
 		}
 		
 		if(e.getSource() == draw && buttonPress < 23) {
