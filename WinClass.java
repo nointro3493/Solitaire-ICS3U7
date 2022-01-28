@@ -40,7 +40,7 @@ public class WinClass extends JFrame {
 		winFrame.add(loss);
 		winFrame.validate();
 		
-		double winPercentage = ((double)WinClass.getTotalGames()/WinClass.getWins())*100;
+		double winPercentage = ((double)WinClass.getWins()/WinClass.getTotalGames())*100;
 		
 		int winPercentageInt = (int) winPercentage;
 		JLabel percentWin = new JLabel(""+ (winPercentage)+"");

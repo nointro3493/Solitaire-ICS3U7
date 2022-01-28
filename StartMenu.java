@@ -6,6 +6,7 @@ public class StartMenu extends JFrame implements ActionListener{
 	private JFrame frame;
 	private JLabel titleText;
 	private JLabel bgPic;
+	private JLabel creatorInfo;
 	private JButton okbutton;
 	private JButton exitbutton;
 	private JButton helpbutton;
@@ -16,7 +17,13 @@ public class StartMenu extends JFrame implements ActionListener{
 		frame.setVisible( true );
 		frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 		bgPic = new JLabel();
-
+		
+		creatorInfo = new JLabel("ICS3U7-01 By: Kabir And Jade");
+		creatorInfo.setBounds(50,0,1500,49);
+		creatorInfo.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
+		
+		frame.add(creatorInfo);
+		
 
 
 
