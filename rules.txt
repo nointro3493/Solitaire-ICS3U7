@@ -1,0 +1,12 @@
+Hello! Welcome to SpadeAce. To get started press the start button which will open up a new SpadeAce Game.
+In case you've never played before, the objective of SpadeAce is to stack all of the cards by suit in ascending
+order, from the ace to the king. There are seven piles of cards on the table and a draw pile. In order to reveal 
+new cards, stack the visible cards in descending order with alternating suit colours. For example, if the top card
+in a pile is an eight of diamonds, the next card on the pile must be a seven of clubs or spades. If you run out of
+moves, draw a card. If you run out of moves and cards to draw you have lost the game. If a pile becomes empty, you 
+may move a new card into that pile.
+To move a card, enter the rank and the first letter of the card's suit in the first textbox. In the second textbox 
+enter the pile number which corresponds with the pile you want to move the card to, then press submit. Make sure
+you don't press submit twice. To draw a card, press the face down card in the top right corner. You can access 
+any of the revealed draw pile cards at any time. Once you have won the game, press check win. Those are all of
+the rules. If you need to access them during the game press the help button on the bottom right. Have fun!
