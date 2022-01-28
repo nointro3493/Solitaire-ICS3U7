@@ -14,6 +14,7 @@ public class SolitaireMain extends Deck implements ActionListener{
 	SimpleDateFormat dateFormat;
 	JLabel timeLabel;
 	JLabel dayLabel;
+	JButton helpButton;
 	JLabel dateLabel;
 	String time;
 	String day;
@@ -108,6 +109,15 @@ public class SolitaireMain extends Deck implements ActionListener{
 		draw.setOpaque(true);
 		draw.addActionListener(this);
 		frame1.add(draw, 0);
+		
+		helpButton = new JButton();
+		helpButton.setBounds(0, 0, 50, 50);
+		helpButton.setIcon(new ImageIcon("images/helpButton.png"));
+		helpButton.setBorderPainted(false);
+		helpButton.setOpaque(true);
+		helpButton.addActionListener(this);
+		frame1.add(helpButton,0);
+		
 
 
 		t2=new JTextField("");  			  //This text field reads the card type
@@ -233,6 +243,10 @@ public class SolitaireMain extends Deck implements ActionListener{
 		if (e.getSource() == checkWin) {
 			deck.win(frame1);
 
+		}
+		if(e.getSource() == helpButton) {
+			TutorialClass tut = new TutorialClass();
+			
 		}
 	}
 }

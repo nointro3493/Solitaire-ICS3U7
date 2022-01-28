@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.awt.event.*;
 
 import javax.swing.*;	
-public class TutorialClass extends JPanel{
+public class TutorialClass extends JPanel implements ActionListener{
 	JFrame tutorialFrame;
 	JLabel bgPicture;
 	String line;
@@ -13,12 +13,15 @@ public class TutorialClass extends JPanel{
 	JLabel stepFour;
 	JLabel tutorialImage;
 	JLabel placeCardImage;
-	JButton back;
+	JButton backButton;
+	
 	Color background = new Color(154, 180, 205);
 	static int y = 10;
 
 
 	TutorialClass() {
+		
+		
 		tutorialFrame = new JFrame();
 		tutorialFrame.setSize(1200, 600);
 		tutorialFrame.getContentPane().setBackground(background);
@@ -26,7 +29,16 @@ public class TutorialClass extends JPanel{
 		tutorialFrame.setVisible(true);
 		tutorialFrame.setLayout(null);
 		
-		addRules();
+		backButton = new JButton("Back");// The back button is used to allow the player to quit the game.
+		backButton.setBounds(1050, 0, 150, 40); // it consists of actions listeners to check for actions
+		backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+		backButton.setBorderPainted(false);
+		backButton.setOpaque(true);
+		backButton.setBackground(Color.GRAY);
+		backButton.addActionListener(this);
+		tutorialFrame.add(backButton);
+		
+		
 
 
 		tutorialImage = new JLabel();
@@ -42,6 +54,8 @@ public class TutorialClass extends JPanel{
 		placeCardImage.setBounds(780, 300, 400, 300);
 		tutorialFrame.add(placeCardImage);	
 		tutorialFrame.validate();
+		
+		addRules();
 
 	}
 
@@ -68,6 +82,16 @@ public class TutorialClass extends JPanel{
 		line.setBounds(20, y, 1800, 100); 
 		tutorialFrame.add(line);
 		tutorialFrame.revalidate();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == backButton) {
+			tutorialFrame.setVisible(false);
+			
+		}
+		// TODO Auto-generated method stub
+		
 	}
 
 
