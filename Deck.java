@@ -125,6 +125,7 @@ public class Deck
 	public Deck()
 
 	{   
+		WinClass.setTotalGames(1);
 		//Assignment of images to everycard and adding images to cardImages
 		aH = new JLabel();
 		aH.setIcon(new ImageIcon("images/AH.png"));
@@ -886,7 +887,7 @@ public class Deck
 				//Checks for the valid movements into every pile
 				if(pileNum == 10) {//If pile number is 1 then this procedure takes place
 					//a set of conditions are used to see if valid movement is being done 
-					if(!(pileAH.contains(deck.get(i))))
+					if(!(pileAH.contains(deck.get(i)))) {
 						if(deck.get(i).getSuit() == pileAH.get(pileAH.size()-1).getSuit()) {// && deck.get(i).getRank() - 1 == pileAH.get(pileAH.size() - 1).getRank()) {
 							if(deck.get(i).getRank()  -1 ==  pileAH.get(pileAH.size() - 1).getRank()) {
 
@@ -904,36 +905,38 @@ public class Deck
 
 							}
 						}
+					}
 				}
-			}
-			//Checks for the valid movements into every pile
-			if(pileNum == 11) {//If pile number is 1 then this procedure takes place
-				//a set of conditions are used to see if valid movement is being done 
-				if(!(pileAD.contains(deck.get(i)))) {
-					if(deck.get(i).getSuit() == pileAD.get(pileAD.size()-1).getSuit()) {// && deck.get(i).getRank() - 1 == pileAD.get(pileAD.size() - 1).getRank()) {
-						if(deck.get(i).getRank() -1 ==  pileAD.get(pileAD.size() - 1).getRank()) {
 
-							isLegal = true;
+				//Checks for the valid movements into every pile
+				if(pileNum == 11) {//If pile number is 1 then this procedure takes place
+					//a set of conditions are used to see if valid movement is being done 
+					if(!(pileAD.contains(deck.get(i)))) {
+						if(deck.get(i).getSuit() == pileAD.get(pileAD.size()-1).getSuit()) {// && deck.get(i).getRank() - 1 == pileAD.get(pileAD.size() - 1).getRank()) {
+							if(deck.get(i).getRank() -1 ==  pileAD.get(pileAD.size() - 1).getRank()) {
 
-							prevX = 490;
+								isLegal = true;
 
-							prevY = 500;
+								prevX = 490;
 
-							deck.get(i).getImage().setBounds(prevX, prevY, 100, 147);
-							deck.get(i).setX(prevX);
-							deck.get(i).setY(prevY);
+								prevY = 500;
 
-							jframe.add(deck.get(i).getImage(), 0);
-							pileAD.add(deck.get(i));
+								deck.get(i).getImage().setBounds(prevX, prevY, 100, 147);
+								deck.get(i).setX(prevX);
+								deck.get(i).setY(prevY);
+
+								jframe.add(deck.get(i).getImage(), 0);
+								pileAD.add(deck.get(i));
 
 
+							}
 						}
 					}
 				}
 			}
 
 		}
-		
+
 		//Gives an error message if movement requested is not valid
 		if (!isLegal) {
 			JOptionPane.showMessageDialog(jframe, "Illegal move. Try again.", "Illegal Movement", JOptionPane.ERROR_MESSAGE);
@@ -943,7 +946,7 @@ public class Deck
 
 
 	public void drawCard(JLayeredPane jframe, int buttonPress) {
-		
+
 		//draws a card from the draw pile
 		drawPile.get(0).getImage().setBounds(1225, drawY, 100, 147);
 		jframe.add(drawPile.get(0).getImage(), 0);
@@ -953,7 +956,7 @@ public class Deck
 		count++;
 		//removes card from draw pile
 		drawPile.remove(0);
-		
+
 		//To remove the last card in the pile
 		if(count == 23) {
 			drawPile.get(drawPile.size()-1).getImage().setBounds(1225, drawY, 100, 147);
@@ -961,11 +964,20 @@ public class Deck
 		}
 	}
 
-	public void win(JFrame jframe) {	
+	public void win(JFrame jframe) {
+		
+		
+		
 		//Checks if every pile is the correct size
 		if (pileAC.size() == 15 && pileAS.size() == 15 && pileAH.size() == 15 && pileAD.size() == 15) {
-			WinClass win = new WinClass(); //Opens the win class
+			 //Opens the win class
 			jframe.setVisible(false); // closes the main frame
+			
+			WinClass.setWins(1);
+			WinClass win = new WinClass();
+			
+			
+			
 		} 
 		else {	
 			//gives an error message if movement is not valid
