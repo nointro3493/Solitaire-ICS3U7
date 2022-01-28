@@ -986,18 +986,18 @@ public class Deck
 	public void drawCard(JLayeredPane jframe, int buttonPress) {
 
 		//draws a card from the draw pile
-		drawPile.get(0).getImage().setBounds(1225, drawY, 100, 147);
+		drawPile.get(0).getImage().setBounds(1200, drawY, 100, 147);
 		jframe.add(drawPile.get(0).getImage(), 0);
 		jframe.validate();
 		//Adds 30 to the y axis
-		drawY += 30;
+		drawY += 25;
 		count++;
 		//removes card from draw pile
 		drawPile.remove(0);
 
 		//To remove the last card in the pile
 		if(count == 23) {
-			drawPile.get(drawPile.size()-1).getImage().setBounds(1225, drawY, 100, 147);
+			drawPile.get(drawPile.size()-1).getImage().setBounds(1200, drawY, 100, 147);
 			jframe.add(drawPile.get(drawPile.size()-1).getImage(), 0);
 		}
 	}
