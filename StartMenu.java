@@ -19,7 +19,8 @@ public class StartMenu extends JFrame implements ActionListener{
 		bgPic = new JLabel();
 		
 		creatorInfo = new JLabel("ICS3U7-01 By: Kabir And Jade");
-		creatorInfo.setBounds(50,0,1500,49);
+		creatorInfo.setBounds(50,500,1500,49);
+		creatorInfo.setForeground(Color.WHITE);
 		creatorInfo.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
 		
 		frame.add(creatorInfo);
@@ -69,7 +70,7 @@ public class StartMenu extends JFrame implements ActionListener{
 
 
 
-		bgPic.setIcon(new ImageIcon("images/StartPage.jpeg"));
+		bgPic.setIcon(new ImageIcon("images/StartPage.jpg"));
 		bgPic.setBounds(1200, 600, 0, 0);
 		frame.add(bgPic);	
 		frame.validate();
@@ -89,7 +90,7 @@ public class StartMenu extends JFrame implements ActionListener{
 
 
 		if(e.getSource() == exitbutton) {
-			frame.setVisible(false);
+			System.exit(0);
 		}
 
 		if(e.getSource() == helpbutton) {

@@ -1,7 +1,14 @@
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -130,9 +137,11 @@ public class Deck
 	//Arraylist for the entire deck
 	public ArrayList<Card> deck;
 
-	public Deck()
+	public Deck() 
 
 	{   
+		//Starts
+		
 		
 		//Assignment of images to everycard and adding images to cardImages
 		aH = new JLabel();
@@ -424,6 +433,22 @@ public class Deck
 
 	public void deal(JLayeredPane jframe) 
 	{	
+		File file  = new File("images/backgroundMusic.wav"); 
+		AudioInputStream audioStream;
+		try {
+			audioStream = AudioSystem.getAudioInputStream(file);
+			Clip clip = AudioSystem.getClip();
+			clip.open(audioStream);
+			clip.start();
+		} catch (UnsupportedAudioFileException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (LineUnavailableException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		WinClass.setTotalGames(1);
 		//keeps track of layer count
 		int layerCnt = 0;
