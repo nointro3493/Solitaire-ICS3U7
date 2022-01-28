@@ -60,10 +60,6 @@ public class WinClass extends JFrame {
 
 	public static int getWins() {
 		String fileName = "gamesWon.txt";
-		String gamesWon;
-		String gamesLost;
-		int gamesWonInt = 0;
-		int gamesLostInt;
 		String line ="";
 		String lastLine = "";
 		
@@ -73,20 +69,8 @@ public class WinClass extends JFrame {
 				line = lastLine;
 				
 			}
-			gamesWon = reader.readLine(); //read in a line 
-			gamesLost = reader.readLine();
-
-		//	gamesWonInt = Integer.valueOf(gamesWon);
-		//	gamesLostInt = Integer.valueOf(gamesLost);
-
 
 			reader.close();
-
-			System.out.println(gamesWon);
-			System.out.println(gamesLost);
-
-
-
 		}
 
 		catch(IOException iox) {
@@ -109,21 +93,9 @@ public class WinClass extends JFrame {
 			while((lastLine = reader.readLine())!= null) {
 				line = lastLine;
 			
-			gamesWon = reader.readLine(); //read in a line 
-			gamesLost = reader.readLine();
-
-			//gamesWonInt = Integer.parseInt(gamesWon);
-		//gamesLostInt = Integer.parseInt(gamesLost);
-
-
+			
+			}
 			reader.close();
-
-			System.out.println(gamesWon);
-			System.out.println(gamesLost);
-
-
-
-		}
 		}
 
 		catch(IOException iox) {

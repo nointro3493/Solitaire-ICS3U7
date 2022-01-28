@@ -24,7 +24,7 @@ public class Deck
 	public static final int KING = 13;
 	public static final int ACE = 0;
 
-	//Variables used for movement and dealing of cards
+	//Variables used for movement and dealing of cards	
 	int xAxis;
 	int yAxis;
 	int prevX;
@@ -133,7 +133,7 @@ public class Deck
 	public Deck()
 
 	{   
-		WinClass.setTotalGames(1);
+		
 		//Assignment of images to everycard and adding images to cardImages
 		aH = new JLabel();
 		aH.setIcon(new ImageIcon("images/AH.png"));
@@ -424,6 +424,7 @@ public class Deck
 
 	public void deal(JLayeredPane jframe) 
 	{	
+		WinClass.setTotalGames(1);
 		//keeps track of layer count
 		int layerCnt = 0;
 		//Keeps track of the pile number
