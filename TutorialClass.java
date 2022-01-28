@@ -20,8 +20,7 @@ public class TutorialClass extends JPanel implements ActionListener{
 
 
 	TutorialClass() {
-		
-		
+		//frame for the tutorial class
 		tutorialFrame = new JFrame();
 		tutorialFrame.setSize(1200, 600);
 		tutorialFrame.getContentPane().setBackground(background);
@@ -40,7 +39,7 @@ public class TutorialClass extends JPanel implements ActionListener{
 		
 		
 
-
+		//Background image for 
 		tutorialImage = new JLabel();
 
 		tutorialImage.setIcon(new ImageIcon("images/TutorialImage.png"));
