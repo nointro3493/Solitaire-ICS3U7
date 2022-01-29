@@ -1,26 +1,19 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 import javax.swing.*;
 
-
-import javax.swing.*;
+/**
+ * @authors Jade Marmash and Kabir Jain
+ * Date: January 28th
+ * Program Name: SpadeAce (version 16.0.2)
+ * Description: SpadeAce creates a GUI which allows the user to play SpadeAce, a game which is
+ * very similar to Solitaire with a few adjusted rules. The SolitaireMain class creates the game 
+ * play frame and is also the main program for all of our other classes.
+ */
 public class SolitaireMain extends Deck implements ActionListener{
-	Calendar calendar;
-	SimpleDateFormat timeFormat;
-	SimpleDateFormat dayFormat;
-	SimpleDateFormat dateFormat;
-	JLabel timeLabel;
-	JLabel dayLabel;
+	
+	//declare variables
 	JButton helpButton;
-	JLabel dateLabel;
-	String time;
-	String day;
-	String date;
-
-
 	private JFrame frame1;
 	private JButton backButton;
 	private JButton submit;
@@ -52,9 +45,9 @@ public class SolitaireMain extends Deck implements ActionListener{
 	public static JLabel p11 = new JLabel("11");
 
 	/**
-	 * 
+	 * Constructor for out mainMenu, it creates the main frame in which the majority of our program
+	 * takes place and all of the buttons used during gamePlay
 	 */
-
 	SolitaireMain(){
 
 		labelFrame = new JLayeredPane();		 //The label frame is a layered pane that is added into the main frame
@@ -66,10 +59,6 @@ public class SolitaireMain extends Deck implements ActionListener{
 		frame1.setVisible(true);
 		frame1.setLayout(null);
 		frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
-
-
 
 
 		deck = new Deck();						// This line here calls upon the deck class method
@@ -118,7 +107,6 @@ public class SolitaireMain extends Deck implements ActionListener{
 		helpButton.addActionListener(this);
 		frame1.add(helpButton,0);
 		
-
 
 		t2=new JTextField("");  			  //This text field reads the card type
 		t2.setBounds(600, 525, 150,49);
@@ -194,27 +182,23 @@ public class SolitaireMain extends Deck implements ActionListener{
 
 		deck.shuffle();
 		deck.deal(labelFrame);
-
-
-
 	}
+	
 	/**
-	 * This Method is the main method for the spade ace game
+	 * Main method of the program
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		//new SolitaireMain();
+		//Creates a new Main Menu
 		new StartMenu();
 
 	}
 
-
-
-
-	@Override
 	/**
-	 * This method check for the actions performed throughout the Mainframe
+	 * Checks which actions the user has performed
+	 * @param e 
 	 */
+	@Override
 	public void actionPerformed(ActionEvent e) {
 
 		if(e.getSource() == backButton) { // Checks if the exit button has been pressed
@@ -231,21 +215,21 @@ public class SolitaireMain extends Deck implements ActionListener{
 				deck.moveCard(cardType, pileNum, labelFrame); //move card method is called
 			}
 			catch(NumberFormatException e1) {
-				JOptionPane.showMessageDialog(frame1, "Illegal move. Try again.", "Illegal Movement", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(frame1, "Illegal move. Try again.", "Illegal Movement", JOptionPane.ERROR_MESSAGE); //creates error message for illegal moves
 			}
 		}
 
-		if(e.getSource() == draw && buttonPress < 23) {
-			deck.drawCard(labelFrame, buttonPress);
+		if(e.getSource() == draw && buttonPress < 23) { //allows user to draw a card only 23 times to access cards that are not dealt
+			deck.drawCard(labelFrame, buttonPress); //calls on the drawCard method in the deck class
 			buttonPress++;
 		}
 
-		if (e.getSource() == checkWin) {
-			deck.win(frame1);
+		if (e.getSource() == checkWin) { //checks if the user pressed the checkWin button
+			deck.win(frame1); //calls on the win method in the deck class
 
 		}
-		if(e.getSource() == helpButton) {
-			TutorialClass tut = new TutorialClass();
+		if(e.getSource() == helpButton) { //checks if the user pressed the help button
+			TutorialClass tut = new TutorialClass(); //creates a new TutorialClass object to display rules in game
 			
 		}
 	}

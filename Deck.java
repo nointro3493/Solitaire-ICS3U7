@@ -11,9 +11,18 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
+/**
+ * @authors Jade Marmash and Kabir Jain
+ * Date: January 28th
+ * Program Name: SpadeAce (version 16.0.2)
+ * Description: The deck class creates the deck of cards in our game along with all of the methods
+ * which allow the game to be played.
+ */
 
 public class Deck 
 {
+	//declare variables
+	
 	// Declaration of the suits into numbers
 	public static final int HEARTS = 0;
 	public static final int SPADES = 2;
@@ -42,24 +51,15 @@ public class Deck
 	// Used to count the amount of cards dealt
 	private static int cardCnt = 0;
 
-
 	// Declaration of all the cards
 	public static JLabel aH;
-	
-	public static JLabel twoH;
-	
-	public static JLabel threeH;
-	
-	public static JLabel fourH;
-	
+	public static JLabel twoH;	
+	public static JLabel threeH;	
+	public static JLabel fourH;	
 	public static JLabel fiveH;
-	
-	public static JLabel sixH;
-	
-	public static JLabel sevenH;
-	
-	public static JLabel eightH;
-	
+	public static JLabel sixH;	
+	public static JLabel sevenH;	
+	public static JLabel eightH;	
 	public static JLabel nineH;
 	public static JLabel tenH;
 	public static JLabel jH;
@@ -134,16 +134,15 @@ public class Deck
 	public static ArrayList<Card> cardsDrawn = new ArrayList<Card>();
 	public static ArrayList<String> totalCards = new ArrayList<String>();
 	public static ArrayList<JLabel> cardImages = new ArrayList<JLabel>();
+	
 	//Arraylist for the entire deck
 	public ArrayList<Card> deck;
 
+	//constructor 
 	public Deck() 
 
 	{   
-		//Starts
-		
-		
-		//Assignment of images to everycard and adding images to cardImages
+		//Assigns the images of every card and adds them to the ArrayList cardImages
 		aH = new JLabel();
 		aH.setIcon(new ImageIcon("images/AH.png"));
 		cardImages.add(aH);
@@ -368,87 +367,97 @@ public class Deck
 		aCTemp.setIcon(new ImageIcon("images/ACTemp.png"));
 		cardImages.add(aCTemp);
 
-
-
-		// Assigning every card an object
 		int imageNum = 0;
 		deck = new ArrayList<Card>();
 
-		//Blank cards to add into the ace pile to prevent logic errors in movement
-
+		//Blank cards to add into the ace piles to prevent logic errors in movement
 		Card blank1 = new Card(0, 0, aHTemp, 0, 0, 0, 0, 0);
 		Card blank2 = new Card(0, 1, aDTemp, 0, 0, 0, 0, 0);
 		Card blank3 = new Card(0, 2, aSTemp, 0, 0, 0, 0, 0);
 		Card blank4 = new Card(0, 3, aCTemp, 0, 0, 0, 0, 0);
 
+		//adds these cards to the ace piles
 		pileAC.add(blank4);
 		pileAS.add(blank3);
 		pileAH.add(blank1);
 		pileAD.add(blank2);
 
-		//Nested For goes through every card and assigns it the suit.
-
-		for(int rank = 1; rank <= KING; rank++)
-		{
-			for(int suit = HEARTS; suit <= CLUBS; suit++)
-			{
+		//for loop goes through every rank
+		for(int rank = 1; rank <= KING; rank++) {
+			
+			//nested for loop goes through the four suits
+			for(int suit = HEARTS; suit <= CLUBS; suit++) {
+				
+				//Adds rank, suit, image, x coordinate, y coordinate, pile Number, pile position, and if its a red card, adds 5 for its color
 				if(suit == HEARTS || suit == DIAMONDS) {
-
-					//Adds rank, suit, image, x coord, y coord, pile Number, pile position, and if its a red card, adds 5
-					//adds card to deck
 					Card card = new Card(rank, suit, cardImages.get(imageNum), 0, 0,0,0, REDCARD);
+					//adds card to deck
 					deck.add(card);
 					totalCards.add(rank+""+suit);
 
 				}
-				//Adds rank, suit, image, x coord, y coord, pile Number, pile position, and if its a black card, adds 7
-				//adds card to deck
+				
+				//Adds rank, suit, image, x coord, y coord, pile Number, pile position, and if its a black card, adds 7 for its color
 				else if(suit == SPADES || suit == CLUBS) {
 					Card card = new Card(rank, suit, cardImages.get(imageNum), 0, 0,0,0, BLACKCARD);
+					//adds card to deck
 					deck.add(card);
 					totalCards.add(rank+""+suit);
 
 
 				}
+				
+				//the images are assigned according to the order they were added into the cardImages ArrayList, so for every new card declared, the index counter increases
 				imageNum++;
-
 			}
 		}
 	}
 
 
-	//Shuffle method to shuffle the cards
+	/**
+	 * This method sorts a Deck object into a random order ("shuffles" the deck)
+	 */
 	public void shuffle()
 	{
 		for(int i = 0; i < deck.size(); i++)
 		{
+			//uses Math class to generate a random index in the deck
 			int randomIndex = (int) (Math.random() * deck.size());
 			Card x = deck.get(i);
 			Card y = deck.get(randomIndex);
 
+			//places that card randomly into the ArrayList
 			deck.set(i, y);
 			deck.set(randomIndex, x);
 		}
 	}
 
+	/**
+	 * This method "deals" out the cards into piles to start a new SpadeAce game.
+	 * @param jframe
+	 */
 	public void deal(JLayeredPane jframe) 
 	{	
+		//adds background music
 		File file  = new File("images/backgroundMusic.wav"); 
 		AudioInputStream audioStream;
+
 		try {
 			audioStream = AudioSystem.getAudioInputStream(file);
 			Clip clip = AudioSystem.getClip();
 			clip.open(audioStream);
 			clip.start();
-		} catch (UnsupportedAudioFileException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (LineUnavailableException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		
+		catch (UnsupportedAudioFileException | IOException e) {
+			e.printStackTrace();
+		} 
 		
+		catch (LineUnavailableException e) {
+			e.printStackTrace();
+		}
+
+		//each time this method is called on in our main program, total games is increased by one
 		WinClass.setTotalGames(1);
 		//keeps track of layer count
 		int layerCnt = 0;
@@ -458,26 +467,21 @@ public class Deck
 		xAxis = 50;
 		yAxis = 50;
 
-
 		//Adding templates for the Ace piles
 		aCTemp.setBounds(40, 500, 100, 145);
 		jframe.add(aCTemp, 0);
-		//jframe.validate();
 
 		aSTemp.setBounds(190, 500, 100, 145);
 		jframe.add(aSTemp, 0);
-		//		jframe.validate();
 
 		aHTemp.setBounds(340, 500, 100, 145);
 		jframe.add(aHTemp, 0);
-		//jframe.validate();
 
 		aDTemp.setBounds(490, 500, 100, 145);
 		jframe.add(aDTemp, 0);
-		//jframe.validate();
 
-		//Nested for loop to deal the cards in their respective piles by
-		//by checking if piles are less than 8 and the amount of cards in each pile are less than the pile number
+		//Nested for loop to deals the cards in their respective piles by checking if piles are
+		//less than 8 and the amount of cards in each pile are less than the pile number
 		for(int piles = 1; piles < 8; piles++) {
 			for(int cards = 1; cards <= piles; cards++) {
 
@@ -493,62 +497,70 @@ public class Deck
 				//yAxis = yAxis +40;
 
 
-				//Used to add the cards into their respective pile lists
-				if(pileNum == 0) {
+				//Adds the cards into their respective pile lists
+				if(pileNum == 0) { //for pile1
 					pile1.add(deck.get(cardCnt));
-
-
 				}
-				else if(pileNum == 1) {
+				
+				else if(pileNum == 1) { //for pile2
 					pile2.add(deck.get(cardCnt));
 
 				}
-				else if(pileNum == 2) {
+				
+				else if(pileNum == 2) { //for pile3
 					pile3.add(deck.get(cardCnt));
 
 				}
-				else if(pileNum == 3) {
+				
+				else if(pileNum == 3) { //for pile4
 					pile4.add(deck.get(cardCnt));
 
 				}
-				else if(pileNum == 4) {
+				
+				else if(pileNum == 4) { //for pile5
 					pile5.add(deck.get(cardCnt));
 
 				}
-				else if(pileNum == 5) {
+				
+				else if(pileNum == 5) { //for pile6
 					pile6.add(deck.get(cardCnt));
 
 				}
-				else {
+				
+				else { //for pile7
 					pile7.add(deck.get(cardCnt));
 
 				}
+				
 				//Increases card count to proceed to next card
-
 				cardCnt++;
 			}
+			
 			//Increases pile number to proceed to next pile
-
 			pileNum++;
 
 			//resets y axis position
 			yAxis = 50;
 
-			// 150 pixels to the x axis for next pile to be created
-
+			//adds 150 pixels to the x axis for next pile to be created
 			xAxis+= 150;
 
 		}
 
-		//Adds all the unused cards into its arraylist
+		//Adds all the unused cards into the drawPile ArrayList
 		for (int i = cardCnt; i < 52; i++) {
 			drawPile.add(deck.get(i));
 		}
 
 	}
 
-
-	public void moveCard(String cardType,int pileNum,JLayeredPane jframe) {
+	/**
+	 * This method checks all of the conditions for a card movement inputed by the user
+	 * @param cardType
+	 * @param pileNum
+	 * @param jframe
+	 */
+	public void moveCard(String cardType, int pileNum, JLayeredPane jframe) {
 		//Boolean to check movement legality
 		boolean isLegal = false;
 
@@ -605,6 +617,7 @@ public class Deck
 				if(pileNum == 1) { //If pile number is 1 then this procedure takes place
 					//a set of conditions are used to see if valid movement is being done 
 					if (pile1.size() > 0) {
+						
 						if(deck.get(i).getColor() != pile1.get(pile1.size()-1).getColor() && deck.get(i).getRank() + 1 == pile1.get(pile1.size() - 1).getRank()) {
 
 							isLegal = true;
@@ -620,7 +633,8 @@ public class Deck
 							pile1.add(deck.get(i));
 						}
 					}
-					// Movement to the empty pile 1
+					
+					// Movement if the pile is empty
 					else if (pile1.size() == 0) {
 						isLegal = true;
 						prevX = 50;
@@ -641,6 +655,7 @@ public class Deck
 				if(pileNum == 2) {//If pile number is 1 then this procedure takes place
 					//a set of conditions are used to see if valid movement is being done 
 					if (pile2.size() > 0) {
+						
 						if(deck.get(i).getColor() != pile2.get(pile2.size()-1).getColor() && deck.get(i).getRank() + 1 == pile2.get(pile2.size() - 1).getRank()) {
 
 							isLegal = true;
@@ -657,7 +672,8 @@ public class Deck
 						}
 
 					}
-
+					
+					// Movement if the pile is empty
 					else if (pile2.size() == 0) {
 
 						isLegal = true;
@@ -674,20 +690,16 @@ public class Deck
 						jframe.add(deck.get(i).getImage(), 0);
 						pile2.add(deck.get(i));
 					}
-
-
 				}
 
 				//Checks for the valid movements into every pile
 				if(pileNum == 3) {//If pile number is 1 then this procedure takes place
 					//a set of conditions are used to see if valid movement is being done 
 					if (pile3.size() > 0) {
+						
 						if(deck.get(i).getColor() != pile3.get(pile3.size()-1).getColor() && deck.get(i).getRank() + 1 == pile3.get(pile3.size() - 1).getRank()) {
 
 							isLegal = true;
-
-
-
 							prevX = 350;
 
 							prevY = pile3.get(pile3.size()-1).getY()+30;
@@ -703,8 +715,9 @@ public class Deck
 						}
 
 					}
+					
+					// Movement if the pile is empty
 					else if (pile3.size() == 0) {
-
 						isLegal = true;
 						prevX = 350;
 
@@ -722,6 +735,7 @@ public class Deck
 				if(pileNum == 4) {//If pile number is 1 then this procedure takes place
 					//a set of conditions are used to see if valid movement is being done 
 					if (pile4.size() > 0) {
+						
 						if(deck.get(i).getColor() != pile4.get(pile4.size()-1).getColor() && deck.get(i).getRank() + 1 == pile4.get(pile4.size() - 1).getRank()) {
 
 							isLegal = true;
@@ -738,7 +752,8 @@ public class Deck
 							pile4.add(deck.get(i));
 						}
 					}
-
+					
+					// Movement if the pile is empty
 					else if (pile4.size() == 0) {
 
 						isLegal = true;
@@ -755,17 +770,16 @@ public class Deck
 						pile4.add(deck.get(i));
 					}
 
-
 				}
+				
 				//Checks for the valid movements into every pile
 				if(pileNum == 5) {//If pile number is 1 then this procedure takes place
 					//a set of conditions are used to see if valid movement is being done 
 					if (pile5.size() > 0) {
+						
 						if(deck.get(i).getColor() != pile5.get(pile5.size()-1).getColor() && deck.get(i).getRank() + 1 == pile5.get(pile5.size() - 1).getRank()) {
 
 							isLegal = true;
-
-
 
 							prevX = 650;
 
@@ -780,6 +794,8 @@ public class Deck
 
 						}
 					}
+					
+					// Movement if the pile is empty
 					else if (pile5.size() == 0) {
 
 						isLegal = true;
@@ -798,12 +814,11 @@ public class Deck
 
 				}
 
-
 				//Checks for the valid movements into every pile
-
 				if(pileNum == 6) {//If pile number is 1 then this procedure takes place
 					//a set of conditions are used to see if valid movement is being done 
 					if (pile6.size() > 0) {
+						
 						if(deck.get(i).getColor() != pile6.get(pile6.size()-1).getColor() && deck.get(i).getRank() + 1 == pile6.get(pile6.size() - 1).getRank()) {
 
 							isLegal = true;
@@ -821,6 +836,8 @@ public class Deck
 						}
 
 					}
+					
+					// Movement if the pile is empty
 					else if (pile6.size() == 0) {
 
 						isLegal = true;
@@ -837,10 +854,12 @@ public class Deck
 						pile6.add(deck.get(i));
 					}
 				}
+				
 				//Checks for the valid movements into every pile
 				if(pileNum == 7) {//If pile number is 1 then this procedure takes place
 					//a set of conditions are used to see if valid movement is being done 
 					if (pile7.size() > 0) {
+						
 						if(deck.get(i).getColor() != pile7.get(pile7.size()-1).getColor() && deck.get(i).getRank() + 1 == pile7.get(pile7.size() - 1).getRank()) {
 
 							isLegal = true;
@@ -859,6 +878,7 @@ public class Deck
 						}
 					}
 
+					// Movement if the pile is empty
 					else if (pile7.size() == 0) {
 
 						isLegal = true;
@@ -876,11 +896,14 @@ public class Deck
 					}
 
 				}
+				
 				//Checks for the valid movements into every pile
 				if(pileNum == 8) {//If pile number is 1 then this procedure takes place
 					//a set of conditions are used to see if valid movement is being done 
 					if(!(pileAC.contains(deck.get(i)))) {
-						if(deck.get(i).getSuit() == pileAC.get(pileAC.size()-1).getSuit()) {// && deck.get(i).getRank() - 1 == pileAC.get(pileAC.size() - 1).getRank()) {
+						
+						if(deck.get(i).getSuit() == pileAC.get(pileAC.size()-1).getSuit()) {
+							
 							if(deck.get(i).getRank()  -1 ==  pileAC.get(pileAC.size() - 1).getRank()) {
 
 								isLegal = true;
@@ -899,11 +922,14 @@ public class Deck
 						}
 					}
 				}
+				
 				//Checks for the valid movements into every pile
 				if(pileNum == 9) {//If pile number is 1 then this procedure takes place
 					//a set of conditions are used to see if valid movement is being done 
 					if(!(pileAS.contains(deck.get(i)))){
-						if(deck.get(i).getSuit() == pileAS.get(pileAS.size()-1).getSuit()) {// && deck.get(i).getRank() - 1 == pileAS.get(pileAC.size() - 1).getRank()) {
+						
+						if(deck.get(i).getSuit() == pileAS.get(pileAS.size()-1).getSuit()) {
+							
 							if(deck.get(i).getRank()  -1 ==  pileAS.get(pileAS.size() - 1).getRank()) {
 
 								isLegal = true;
@@ -922,11 +948,14 @@ public class Deck
 						}
 					}
 				}
+				
 				//Checks for the valid movements into every pile
 				if(pileNum == 10) {//If pile number is 1 then this procedure takes place
 					//a set of conditions are used to see if valid movement is being done 
 					if(!(pileAH.contains(deck.get(i)))) {
-						if(deck.get(i).getSuit() == pileAH.get(pileAH.size()-1).getSuit()) {// && deck.get(i).getRank() - 1 == pileAH.get(pileAH.size() - 1).getRank()) {
+						
+						if(deck.get(i).getSuit() == pileAH.get(pileAH.size()-1).getSuit()) {
+							
 							if(deck.get(i).getRank()  -1 ==  pileAH.get(pileAH.size() - 1).getRank()) {
 
 								isLegal = true;
@@ -950,7 +979,9 @@ public class Deck
 				if(pileNum == 11) {//If pile number is 1 then this procedure takes place
 					//a set of conditions are used to see if valid movement is being done 
 					if(!(pileAD.contains(deck.get(i)))) {
-						if(deck.get(i).getSuit() == pileAD.get(pileAD.size()-1).getSuit()) {// && deck.get(i).getRank() - 1 == pileAD.get(pileAD.size() - 1).getRank()) {
+						
+						if(deck.get(i).getSuit() == pileAD.get(pileAD.size()-1).getSuit()) {
+							
 							if(deck.get(i).getRank() -1 ==  pileAD.get(pileAD.size() - 1).getRank()) {
 
 								isLegal = true;
@@ -982,7 +1013,13 @@ public class Deck
 
 	}
 
-
+	/**
+	 * This method "draws a card" or reveals the top card in the draw pile and puts its image on 
+	 * the screen
+	 * @param jframe
+	 * @param buttonPress
+	 * @return void
+	 */
 	public void drawCard(JLayeredPane jframe, int buttonPress) {
 
 		//draws a card from the draw pile
@@ -1002,9 +1039,12 @@ public class Deck
 		}
 	}
 
+	/**
+	 * This method checks if the user has all 13 cards in each ace pile and tells the winner if they
+	 * won based on that
+	 * @param jframe
+	 */
 	public void win(JFrame jframe) {
-		
-		
 		
 		//Checks if every pile is the correct size
 		if (pileAC.size() == 15 && pileAS.size() == 15 && pileAH.size() == 15 && pileAD.size() == 15) {
@@ -1012,13 +1052,11 @@ public class Deck
 			jframe.setVisible(false); // closes the main frame
 			
 			WinClass.setWins(1);
-			WinClass win = new WinClass();
-			
-			
-			
-		} 
+			WinClass win = new WinClass();		
+		}
+		
 		else {	
-			//gives an error message if movement is not valid
+			//gives an error message if they did not win
 			JOptionPane.showMessageDialog(jframe,"Nope you didn't win. Try Again!!", "Not a Winner", JOptionPane.ERROR_MESSAGE);
 		}
 	}
